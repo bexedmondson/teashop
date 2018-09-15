@@ -27,26 +27,8 @@ public class Game : MonoBehaviour
 
     private Customer currentCustomer;
 
-    //TODO make a ui system because this is gross
-    public GameObject teaScreen;
-
-    public Text speechText;
-
-    public Image speakerSprite;
-
-    public Button greenTeaButton;
-    public Button rooibosButton;
-    public Button chamomileButton;
-
-    private Color selectedColour = new Color(0.55f, 0.82f, 0.96f);
-    private Color unselectedColour = new Color(1f, 1f, 1f);
-
     private Ingredient chosenIngredient = null;
 
-    public Button teaChosenButton;
-
-    public GameObject resultScreen;
-    public Text resultText;
 
     void Start()
     {
@@ -68,22 +50,13 @@ public class Game : MonoBehaviour
             ShowResults();
             return;
         }
-
-        SoundManager.instance.PlaySingle("shop_door_bell");
-
-        teaScreen.SetActive(false);
-        resultScreen.SetActive(false);
-
-        speechText.text = currentCustomer.firstEnquiry;
-        speakerSprite.sprite = currentCustomer.sprite;
     }
 
     public void SpeechNext()
     {
         if (chosenIngredient == null)
         {
-            teaScreen.SetActive(true);
-            teaChosenButton.interactable = false;
+            
         }
         else
         {
@@ -95,37 +68,10 @@ public class Game : MonoBehaviour
     public void ChooseTea(Ingredient ingredient)
     {
         chosenIngredient = ingredient;
-
-        teaChosenButton.interactable = true;
-
-        if (ingredient.itemName == "Green Tea")
-        {
-            greenTeaButton.image.color = selectedColour;
-            rooibosButton.image.color = unselectedColour;
-            chamomileButton.image.color = unselectedColour;
-        }
-        else if (ingredient.itemName == "Rooibos")
-        {
-            greenTeaButton.image.color = unselectedColour;
-            rooibosButton.image.color = selectedColour;
-            chamomileButton.image.color = unselectedColour;
-        }
-        else if (ingredient.itemName == "Chamomile")
-        {
-            greenTeaButton.image.color = unselectedColour;
-            rooibosButton.image.color = unselectedColour;
-            chamomileButton.image.color = selectedColour;
-        }
     }
 
     public void TeaChosen()
     {
-        greenTeaButton.image.color = unselectedColour;
-        rooibosButton.image.color = unselectedColour;
-        chamomileButton.image.color = unselectedColour;
-        teaScreen.SetActive(false);
-        speechText.text = currentCustomer.thankYou;
-
         SetSuccess();
 
         customerLibrary.MarkCustomerServed(currentCustomer);
@@ -146,8 +92,6 @@ public class Game : MonoBehaviour
 
     public void ShowResults()
     {
-        resultScreen.SetActive(true);
-
         string resultString = "";
 
         foreach (Customer customer in customerLibrary.customers)
@@ -165,8 +109,6 @@ public class Game : MonoBehaviour
                 resultString += "\n";
             }
         }
-
-        resultText.text = resultString;
     }
 
     public void QuitGame()
