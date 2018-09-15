@@ -42,5 +42,11 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
+    uniqueID: 1593465267
+    locked: 0
+  - name: IngredientStorage
+    uniqueID: 3474674637
+    locked: 0
+  - name: Table
     uniqueID: 1501217201
     locked: 0
