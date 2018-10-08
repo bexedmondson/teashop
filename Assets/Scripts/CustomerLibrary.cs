@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class CustomerLibrary : MonoBehaviour {
 
-	public List<Customer> customers;
+	public List<CustomerData> customerDataList;
+
+	[HideInInspector]
+	public List<Customer> customers = new List<Customer>(); //TODO make private
 
 	private List<Customer> unservedCustomers = new List<Customer>();
 
 	private void Awake()
 	{
-		foreach (Customer c in customers)
-			unservedCustomers.Add(c);
+		foreach (CustomerData customerData in customerDataList)
+		{
+			Customer c = new Customer(customerData);
+
+			customers.Add(c);
+			unservedCustomers.Add(c); //TODO change this
+		}
 	}   
 
 	public Customer GetRandomUnservedCustomer()
@@ -30,19 +38,5 @@ public class CustomerLibrary : MonoBehaviour {
 	{
         customer.beenServed = true;
 		unservedCustomers.Remove(customer);
-	}
-
-	public bool IsValid() //TODO: move this to be an editor check instead
-	{
-		if (customers.Count == 0)
-			return false;
-
-		foreach (Customer c in customers)
-		{
-			if (!c.IsValid())
-				return false;
-		}
-
-		return true;
 	}
 }

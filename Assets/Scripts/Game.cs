@@ -21,9 +21,9 @@ public class Game : MonoBehaviour
     }
 
 
-    public CustomerLibrary customerLibrary;
+    private CustomerLibrary customerLibrary;
 
-    public IngredientLibrary ingredientLibrary;
+    private IngredientLibrary ingredientLibrary;
 
     private Customer currentCustomer;
 
@@ -35,10 +35,7 @@ public class Game : MonoBehaviour
         customerLibrary = GetComponent<CustomerLibrary>();
         ingredientLibrary = GetComponent<IngredientLibrary>();
 
-        if (customerLibrary.IsValid() && ingredientLibrary.IsValid())
-            CustomerArrives();
-        else
-            QuitGame();
+        CustomerArrives();
     }
 
     private void CustomerArrives()
@@ -50,11 +47,17 @@ public class Game : MonoBehaviour
             ShowResults();
             return;
         }
+
+		UIManager.instance.ShowSpeechBubble(currentCustomer.FirstEnquiry);
     }
 
     public void SpeechNext()
     {
-        if (chosenIngredient == null)
+		UIManager.instance.HideSpeechBubble();
+
+		CameraManager.instance.StartMoveDown();
+
+        /*if (chosenIngredient == null)
         {
             
         }
@@ -62,7 +65,7 @@ public class Game : MonoBehaviour
         {
             chosenIngredient = null;
             CustomerArrives();
-        }
+        }*/
     }
 
     public void ChooseTea(Ingredient ingredient)
@@ -79,8 +82,8 @@ public class Game : MonoBehaviour
 
     private void SetSuccess()
     {
-        if (currentCustomer.insomniaLevel <= chosenIngredient.insomniaRelief
-            && currentCustomer.stressLevel <= chosenIngredient.stressRelief)
+        if (currentCustomer.InsomniaLevel <= chosenIngredient.insomniaRelief
+            && currentCustomer.StressLevel <= chosenIngredient.stressRelief)
         {
             currentCustomer.successfulTea = true;
         }
@@ -98,14 +101,14 @@ public class Game : MonoBehaviour
         {
             if (customer.beenServed)
             {
-                resultString += customer.firstName;
+                resultString += customer.FirstName;
                 resultString += ": ";
 
                 if (customer.successfulTea)
                     resultString += "your tea solved their problem!";
                 else
                     resultString += "your tea didn't solve their problem this time.";
-
+                
                 resultString += "\n";
             }
         }

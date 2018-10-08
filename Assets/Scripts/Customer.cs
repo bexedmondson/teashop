@@ -2,27 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "TeaShop/Customer")]
-public class Customer : MonoBehaviour 
-{   
-	public string firstName;
+public class Customer 
+{
 
-	public Sprite sprite;
+	private CustomerData customerData;
+    
+	public bool beenServed = false;
 
-	public int stressLevel;
+	public bool successfulTea = false;
 
-	public int insomniaLevel;
+	public string FirstName { get { return customerData.firstName; } }
 
-    public string firstEnquiry;
+	public string FirstEnquiry { get { return customerData.firstEnquiry; } }
 
-	public string thankYou;
+	public int InsomniaLevel { get { return customerData.insomniaLevel; } }
 
-	public bool beenServed;
+	public int StressLevel { get { return customerData.stressLevel; } }
 
-	public bool successfulTea;
-
-	public bool IsValid() //TODO: move this to be an editor check instead
+	public Customer(CustomerData data)
 	{
-		return !string.IsNullOrEmpty(firstName);
+		customerData = data;
 	}
 }
