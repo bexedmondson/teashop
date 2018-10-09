@@ -20,48 +20,33 @@ public class CameraManager : MonoBehaviour
     
 	[SerializeField] private AnimationCurve cameraMoveCurve;
     
-	private const float bowlViewPositionY = 0f;
-	private const float cabinetViewPositionY = -8.5f;
+	private readonly Vector3 bowlViewPosition = new Vector3(0f, 0f, -10f);
+	private readonly Vector3 cabinetViewPosition = new Vector3(0f, -8.5f, -10f);
     
-	private const float cameraMoveSpeed = 0.1f;
-
-	private Coroutine runningCoroutine;
+	private const float cameraMoveTime = 1f;
     
 	public void StartMoveUp()
     {
-		if (runningCoroutine != null)
-			StopCoroutine(runningCoroutine);
-		
-		runningCoroutine = StartCoroutine(MoveUp());
-    }
-
-	private IEnumerator MoveUp()
-	{
-		while (transform.position.y < bowlViewPositionY)
-        {
-            this.transform.position -= new Vector3(0f, cameraMoveSpeed * -1, 0f);
-            yield return null;
-        }
-
-        runningCoroutine = null;
+		StartCoroutine(MoveCamera(cabinetViewPosition, bowlViewPosition, cameraMoveTime));
 	}
 
-	public void StartMoveDown()
-	{
-		if (runningCoroutine != null)
-            StopCoroutine(runningCoroutine);
-        
-		runningCoroutine = StartCoroutine(MoveDown());
-	}
-
-	private IEnumerator MoveDown()
+    public void StartMoveDown()
     {
-		while (transform.position.y > cabinetViewPositionY)
+		StartCoroutine(MoveCamera(bowlViewPosition, cabinetViewPosition, cameraMoveTime));
+    }
+    
+	private IEnumerator MoveCamera(Vector3 origin, Vector3 target, float duration)
+	{
+		float journey = 0f;
+        while (journey <= duration)
         {
-            this.transform.position -= new Vector3(0f, cameraMoveSpeed, 0f);
+            journey = journey + Time.deltaTime;
+            float percent = Mathf.Clamp01(journey / duration);
+
+			float curvePercent = cameraMoveCurve.Evaluate(percent);
+            transform.position = Vector3.Lerp(origin, target, curvePercent);
+
             yield return null;
         }
-
-        runningCoroutine = null;
-    }
+	}
 }
