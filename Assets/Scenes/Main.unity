@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 839450566}
   - component: {fileID: 839450565}
   m_Layer: 0
-  m_Name: IngredientSpawnPoint
+  m_Name: IngredientPile1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientSpawnPoints:
-  - {fileID: 0}
+  - {fileID: 839450565}
 --- !u!114 &1214923849
 MonoBehaviour:
   m_ObjectHideFlags: 0
