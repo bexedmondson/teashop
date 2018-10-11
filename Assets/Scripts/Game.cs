@@ -82,8 +82,8 @@ public class Game : MonoBehaviour
 
     private void SetSuccess()
     {
-        if (currentCustomer.InsomniaLevel <= chosenIngredient.insomniaRelief
-            && currentCustomer.StressLevel <= chosenIngredient.stressRelief)
+		if (currentCustomer.GetStat(StatData.StatType.Insomnia) <= chosenIngredient.GetStat(StatData.StatType.Insomnia)
+		    && currentCustomer.GetStat(StatData.StatType.Insomnia) <= chosenIngredient.GetStat(StatData.StatType.Stress))
         {
             currentCustomer.successfulTea = true;
         }

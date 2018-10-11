@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Customer 
 {
@@ -12,12 +13,13 @@ public class Customer
 	public bool successfulTea = false;
 
 	public string FirstName { get { return customerData.firstName; } }
-
+    
 	public string FirstEnquiry { get { return customerData.firstEnquiry; } }
-
-	public int InsomniaLevel { get { return customerData.insomniaLevel; } }
-
-	public int StressLevel { get { return customerData.stressLevel; } }
+    
+	public int GetStat(StatData.StatType stat)
+	{
+		return customerData.statData.FirstOrDefault(statData => statData.statType == stat).statValue;
+	}
 
 	public Customer(CustomerData data)
 	{

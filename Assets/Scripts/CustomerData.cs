@@ -9,9 +9,7 @@ public class CustomerData : ScriptableObject
 
 	public Sprite sprite;
 
-	public int stressLevel;
-
-	public int insomniaLevel;
+	public List<StatData> statData;
 
     public string firstEnquiry;
 

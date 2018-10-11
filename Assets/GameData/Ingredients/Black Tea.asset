@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Name: Black Tea
   m_EditorClassIdentifier: 
   itemName: Black Tea
-  stressRelief: 1
-  insomniaRelief: 0
+  statData: []
