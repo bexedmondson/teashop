@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
 {
     public static Game instance = null;
 
-	public List<IngredientObject> ingredientSpawnPoints;
+	public List<IngredientPile> ingredientSpawnPoints;
 
     private void Awake()
     {

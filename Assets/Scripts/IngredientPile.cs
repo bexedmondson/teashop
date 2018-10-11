@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class IngredientObject : MonoBehaviour
+public class IngredientPile : MonoBehaviour
 {   
 	private IngredientData ingredientData;
 

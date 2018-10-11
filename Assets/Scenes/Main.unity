@@ -700,7 +700,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 839450563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 069f05a5aadce4ee1897b0f3b5d4b6b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ebab9cb184cd49e29dc23ed2366ce77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientSpriteRenderer: {fileID: 323500297}
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientSpawnPoints:
-  - {fileID: 839450565}
+  - {fileID: 0}
 --- !u!114 &1214923849
 MonoBehaviour:
   m_ObjectHideFlags: 0
