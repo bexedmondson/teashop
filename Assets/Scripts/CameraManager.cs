@@ -21,7 +21,7 @@ public class CameraManager : MonoBehaviour
 	[SerializeField] private AnimationCurve cameraMoveCurve;
     
 	private readonly Vector3 bowlViewPosition = new Vector3(0f, 0f, -10f);
-	private readonly Vector3 cabinetViewPosition = new Vector3(0f, -8.5f, -10f);
+	private readonly Vector3 cabinetViewPosition = new Vector3(0f, -5.47f, -10f);
     
 	private const float cameraMoveTime = 1f;
     
