@@ -9,6 +9,8 @@ public class Game : MonoBehaviour
 {
     public static Game instance = null;
 
+	public List<IngredientObject> ingredientSpawnPoints;
+
     private void Awake()
     {
         //singleton time!
@@ -27,7 +29,7 @@ public class Game : MonoBehaviour
 
     private Customer currentCustomer;
 
-    private Ingredient chosenIngredient = null;
+    private IngredientData chosenIngredient = null;
 
 
     void Start()
@@ -35,8 +37,21 @@ public class Game : MonoBehaviour
         customerLibrary = GetComponent<CustomerLibrary>();
         ingredientLibrary = GetComponent<IngredientLibrary>();
 
+		SetupScene();
+
         CustomerArrives();
     }
+
+	private void SetupScene()
+	{
+		for (int i = 0; i < ingredientSpawnPoints.Count; i++)
+		{
+			if (i < ingredientLibrary.ingredients.Count)
+			{
+				ingredientSpawnPoints[i].AssignDataToObject(ingredientLibrary.ingredients[i]);
+			}
+		}
+	}
 
     private void CustomerArrives()
     {
@@ -68,7 +83,7 @@ public class Game : MonoBehaviour
         }*/
     }
 
-    public void ChooseTea(Ingredient ingredient)
+    public void ChooseTea(IngredientData ingredient)
     {
         chosenIngredient = ingredient;
     }

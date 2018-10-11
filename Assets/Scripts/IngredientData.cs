@@ -8,7 +8,7 @@ public class IngredientData : ScriptableObject
 {
 	public string itemName;
 
-	public Sprite itemSprite;
+    public Sprite itemSprite;
 
 	public List<StatData> statData;
 
