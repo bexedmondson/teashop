@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class IngredientLibrary : MonoBehaviour {
 
-	public List<Ingredient> ingredients;
+	public List<IngredientData> ingredients;
 
 	public bool IsValid() //TODO: move this to be an editor check instead
     {
 		if (ingredients.Count == 0)
             return false;
 
-		foreach (Ingredient i in ingredients)
+		foreach (IngredientData i in ingredients)
         {
 			if (!i.IsValid())
 				return false;
