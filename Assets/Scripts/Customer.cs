@@ -4,8 +4,7 @@ using UnityEngine;
 using System.Linq;
 
 public class Customer 
-{
-
+{   
 	private CustomerData customerData;
     
 	public bool beenServed = false;

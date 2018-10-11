@@ -4,9 +4,11 @@ using UnityEngine;
 using System.Linq;
 
 [CreateAssetMenu(menuName = "TeaShop/Ingredient")]
-public class Ingredient : ScriptableObject 
+public class IngredientData : ScriptableObject 
 {
 	public string itemName;
+
+    public Sprite itemSprite;
 
 	public List<StatData> statData;
 
