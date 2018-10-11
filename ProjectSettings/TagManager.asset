@@ -50,3 +50,6 @@ TagManager:
   - name: IngredientStorage
     uniqueID: 3474674637
     locked: 0
+  - name: ActiveIngredient
+    uniqueID: 1818314593
+    locked: 0
