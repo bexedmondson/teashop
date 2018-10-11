@@ -8,7 +8,8 @@ public class StatData
 	public enum StatType
 	{
 		Stress,
-        Insomnia
+        Insomnia,
+        Inflammation
 	}
 
 	public StatType statType;
