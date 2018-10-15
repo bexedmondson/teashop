@@ -16,9 +16,4 @@ public class IngredientData : ScriptableObject
     {
         return statData.FirstOrDefault(data => data.statType == stat).statValue;
     }
-
-	public bool IsValid() //TODO: move this to be an editor check instead
-    {
-		return !string.IsNullOrEmpty(itemName);
-    }
 }

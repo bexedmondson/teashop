@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Linq;
 
-public class IngredientPile : MonoBehaviour
+public class IngredientPile : MonoBehaviour, IPointerClickHandler
 {   
 	private IngredientData ingredientData;
 
@@ -23,4 +24,12 @@ public class IngredientPile : MonoBehaviour
 		ingredientData = data;
 		ingredientSpriteRenderer.sprite = ingredientData.itemSprite;
     }
+
+	public void OnPointerClick(PointerEventData pointerEventData)
+	{
+		Debug.Log(pointerEventData.pointerCurrentRaycast.gameObject.name + "clicked!");
+
+		//TODO: decouple this with events
+		Game.instance.IngredientManager.SelectIngredient(ingredientData);
+	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CustomerLibrary))]
-[RequireComponent(typeof(IngredientLibrary))]
+[RequireComponent(typeof(IngredientManager))]
 public class Game : MonoBehaviour
 {
     public static Game instance = null;
@@ -25,7 +25,8 @@ public class Game : MonoBehaviour
 
     private CustomerLibrary customerLibrary;
 
-    private IngredientLibrary ingredientLibrary;
+	private IngredientManager ingredientManager;
+	public IngredientManager IngredientManager { get { return ingredientManager; } }
 
     private Customer currentCustomer;
 
@@ -35,7 +36,7 @@ public class Game : MonoBehaviour
     void Start()
     {
         customerLibrary = GetComponent<CustomerLibrary>();
-        ingredientLibrary = GetComponent<IngredientLibrary>();
+        ingredientManager = GetComponent<IngredientManager>();
 
 		SetupScene();
 
@@ -46,9 +47,9 @@ public class Game : MonoBehaviour
 	{
 		for (int i = 0; i < ingredientSpawnPoints.Count; i++)
 		{
-			if (i < ingredientLibrary.ingredients.Count)
+			if (i < ingredientManager.ingredientMasterList.Count)
 			{
-				ingredientSpawnPoints[i].AssignDataToObject(ingredientLibrary.ingredients[i]);
+				ingredientSpawnPoints[i].AssignDataToObject(ingredientManager.ingredientMasterList[i]);
 			}
 		}
 	}
