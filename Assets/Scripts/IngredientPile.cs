@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class IngredientPile : MonoBehaviour, IPointerClickHandler
@@ -32,4 +33,12 @@ public class IngredientPile : MonoBehaviour, IPointerClickHandler
 		//TODO: decouple this with events
 		Game.instance.IngredientManager.SelectIngredient(ingredientData);
 	}
+
+	public void OnMouseDown()
+    {
+        Debug.Log(this.gameObject.name + "clicked!");
+
+        //TODO: decouple this with events
+        Game.instance.IngredientManager.SelectIngredient(ingredientData);
+    }
 }
