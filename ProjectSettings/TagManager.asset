@@ -53,3 +53,6 @@ TagManager:
   - name: ActiveIngredient
     uniqueID: 1818314593
     locked: 0
+  - name: UI
+    uniqueID: 2236264177
+    locked: 0
