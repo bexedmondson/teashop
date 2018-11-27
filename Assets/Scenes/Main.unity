@@ -977,6 +977,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientSpawnPoints:
   - {fileID: 839450565}
+  selectedIngredientHolders:
+  - {fileID: 1969025773}
+  - {fileID: 1540269616}
+  - {fileID: 219139430}
+  - {fileID: 535952228}
 --- !u!114 &1214923849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,6 +1008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientMasterList:
   - {fileID: 11400000, guid: e7b222ebcffd242c6b9d36f128d99058, type: 2}
+  currentIngredients: []
 --- !u!4 &1214923851
 Transform:
   m_ObjectHideFlags: 0
