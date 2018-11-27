@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f65a8a5d01489292a1193714802d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: cad01a96c17fbd04995a9bc074df928b, type: 3}
   spriteRenderer: {fileID: 0}
 --- !u!61 &219139432
 BoxCollider2D:
@@ -778,6 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f65a8a5d01489292a1193714802d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 16795f0689686a848b0acf665442b0bc, type: 3}
   spriteRenderer: {fileID: 0}
 --- !u!61 &535952230
 BoxCollider2D:
@@ -928,6 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9079b770dbb4594b30fc8534bfd26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teaMix: {fileID: 1829801906}
 --- !u!61 &774880679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1736,6 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f65a8a5d01489292a1193714802d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 63c862c6094639e469c055b44e0ca44c, type: 3}
   spriteRenderer: {fileID: 0}
 --- !u!61 &1540269618
 BoxCollider2D:
@@ -2004,7 +2008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1829801905
 Transform:
   m_ObjectHideFlags: 0
@@ -2228,6 +2232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f65a8a5d01489292a1193714802d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 133adfd534f87fd47867e01c48145e7f, type: 3}
   spriteRenderer: {fileID: 0}
 --- !u!61 &1969025775
 BoxCollider2D:

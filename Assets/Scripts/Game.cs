@@ -89,7 +89,7 @@ public class Game : MonoBehaviour
 	{
 		for (int i = 0; i < ingredientManager.currentIngredients.Count; i++)
 		{
-			selectedIngredientHolders[i].SelectIngredient(ingredientManager.currentIngredients[i]);
+			selectedIngredientHolders[i].OnIngredientSelected(ingredientManager.currentIngredients[i]);
 		}
 	}
 
