@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     public static Game instance = null;
 
 	public List<IngredientPile> ingredientSpawnPoints;
+	public List<SpriteRenderer> selectedIngredientHolders;
 
     private void Awake()
     {
@@ -84,7 +85,15 @@ public class Game : MonoBehaviour
         }*/
     }
 
-    public void ChooseTea(IngredientData ingredient)
+	public void OnSelectedIngredientsUpdate()
+	{
+		for (int i = 0; i < ingredientManager.currentIngredients.Count; i++)
+		{
+			selectedIngredientHolders[i].sprite = ingredientManager.currentIngredients[i].itemSprite;
+		}
+	}
+
+	public void ChooseTea(IngredientData ingredient)
     {
         chosenIngredient = ingredient;
     }
