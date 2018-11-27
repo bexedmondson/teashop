@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     
 	[SerializeField] private Text speechBubbleText;
 
+	[SerializeField] private Image teaBag;
+
 	void Start()
 	{
 		speechBubbleObject.SetActive(false);
@@ -36,5 +38,20 @@ public class UIManager : MonoBehaviour
 	public void HideSpeechBubble()
 	{
 		speechBubbleObject.SetActive(false);
+	}
+
+	public void OnTeaMixed()
+	{
+		teaBag.gameObject.SetActive(true);
+		Animator anim = teaBag.GetComponent<Animator>();
+		if (anim != null)
+		{
+			anim.Play("Animate");
+		}
+	}
+
+	public void OnTeaBagClicked()
+	{
+		teaBag.gameObject.SetActive(false);
 	}
 }

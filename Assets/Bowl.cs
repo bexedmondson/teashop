@@ -27,6 +27,10 @@ public class Bowl : MonoBehaviour, IPointerClickHandler
 			i += 5;
 			teaMix.transform.Rotate(new Vector3(0, 0, 10f));
 			yield return null;
-		}      
+		}
+
+		teaMix.gameObject.SetActive(false);
+
+		UIManager.instance.OnTeaMixed();
 	}
 }
