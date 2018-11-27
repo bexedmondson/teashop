@@ -10,7 +10,7 @@ public class Game : MonoBehaviour
     public static Game instance = null;
 
 	public List<IngredientPile> ingredientSpawnPoints;
-	public List<SpriteRenderer> selectedIngredientHolders;
+	public List<IngredientHolder> selectedIngredientHolders;
 
     private void Awake()
     {
@@ -89,7 +89,7 @@ public class Game : MonoBehaviour
 	{
 		for (int i = 0; i < ingredientManager.currentIngredients.Count; i++)
 		{
-			selectedIngredientHolders[i].sprite = ingredientManager.currentIngredients[i].itemSprite;
+			selectedIngredientHolders[i].spriteRenderer.sprite = ingredientManager.currentIngredients[i].itemSprite;
 		}
 	}
 
