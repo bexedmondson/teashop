@@ -28,17 +28,7 @@ public class IngredientPile : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData pointerEventData)
 	{
-		Debug.Log(pointerEventData.pointerCurrentRaycast.gameObject.name + "clicked!");
-
 		//TODO: decouple this with events
 		Game.instance.IngredientManager.SelectIngredient(ingredientData);
 	}
-
-	public void OnMouseDown()
-    {
-        Debug.Log(this.gameObject.name + "clicked!");
-
-        //TODO: decouple this with events
-        Game.instance.IngredientManager.SelectIngredient(ingredientData);
-    }
 }
