@@ -89,7 +89,7 @@ public class Game : MonoBehaviour
 	{
 		for (int i = 0; i < ingredientManager.currentIngredients.Count; i++)
 		{
-			selectedIngredientHolders[i].spriteRenderer.sprite = ingredientManager.currentIngredients[i].itemSprite;
+			selectedIngredientHolders[i].SelectIngredient(ingredientManager.currentIngredients[i]);
 		}
 	}
 
