@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Chamomile
   m_EditorClassIdentifier: 
   itemName: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: ce48ed305aeadb849b66feeeb5646318, type: 3}
   statData: []

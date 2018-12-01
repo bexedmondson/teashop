@@ -9,6 +9,9 @@ public class IngredientHolder : MonoBehaviour, IPointerClickHandler
     private IngredientData ingredientData;
 
 	[SerializeField]
+	private int index;
+
+	[SerializeField]
 	private SpriteRenderer ingredientSpriteRenderer;
 
 	public void OnIngredientSelected(IngredientData ingredient)
@@ -22,10 +25,14 @@ public class IngredientHolder : MonoBehaviour, IPointerClickHandler
 		if (ingredientData != null)
 		{
 			//TODO: decouple this with events
-			Game.instance.IngredientManager.DeselectIngredient(ingredientData);
-
-			ingredientData = null;
-			ingredientSpriteRenderer.sprite = null;
+			Game.instance.IngredientManager.DeselectIngredient(ingredientData, index);
+			ClearIngredient();
 		}
     }
+
+	public void ClearIngredient()
+	{
+        ingredientData = null;
+        ingredientSpriteRenderer.sprite = null;
+	}
 }

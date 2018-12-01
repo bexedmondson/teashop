@@ -10,12 +10,15 @@ public class Bowl : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData pointerEventData)
     {      
-		if (Game.instance.IngredientManager.currentIngredients.Count >= 1)
+		if (Game.instance.IngredientManager.NumberOfSelectedIngredients >= 1)
 		{
             teaMix.gameObject.SetActive(true);
 
 			StartCoroutine(SpinTea());
         }
+
+        Game.instance.ClearIngredients();
+		Game.instance.IngredientManager.ClearIngredients();
     }   
 
 	private IEnumerator SpinTea()

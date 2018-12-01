@@ -87,10 +87,19 @@ public class Game : MonoBehaviour
 
 	public void OnSelectedIngredientsUpdate()
 	{
-		for (int i = 0; i < ingredientManager.currentIngredients.Count; i++)
+		for (int i = 0; i < IngredientManager.k_maxCurrentIngredients; i++)
 		{
-			selectedIngredientHolders[i].OnIngredientSelected(ingredientManager.currentIngredients[i]);
+			if (ingredientManager.currentIngredients[i] != null)
+			    selectedIngredientHolders[i].OnIngredientSelected(ingredientManager.currentIngredients[i]);
 		}
+	}
+
+	public void ClearIngredients()
+	{
+		for (int i = 0; i < IngredientManager.k_maxCurrentIngredients; i++)
+        {
+			selectedIngredientHolders[i].ClearIngredient();
+        }
 	}
 
 	public void ChooseTea(IngredientData ingredient)

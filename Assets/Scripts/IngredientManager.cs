@@ -4,31 +4,67 @@ using UnityEngine;
 
 public class IngredientManager : MonoBehaviour 
 {
-	private const int k_maxCurrentIngredients = 4;
-
+	public const int k_maxCurrentIngredients = 4;
+    
 	public List<IngredientData> ingredientMasterList;
- 
-	[HideInInspector]
-	public List<IngredientData> currentIngredients = new List<IngredientData> {};
+
+	//[HideInInspector]
+	public IngredientData[] currentIngredients;
+
+	private void Awake()
+	{
+		currentIngredients = new IngredientData[k_maxCurrentIngredients] { null, null, null, null };
+	}
 
 	public void SelectIngredient(IngredientData selectedIngredient)
 	{
-		if (currentIngredients.Count < k_maxCurrentIngredients)
+		for (int i = 0; i < currentIngredients.Length; i++)
 		{
-			currentIngredients.Add(selectedIngredient);
-			Game.instance.OnSelectedIngredientsUpdate();
+			if (currentIngredients[i] == null)
+			{
+				currentIngredients[i] = selectedIngredient;
+				Game.instance.OnSelectedIngredientsUpdate();
+				return;
+			}
 		}
-		else
-		{
-			Debug.LogWarning("Trying to select too many ingredients!");
-		}
+
+		Debug.LogWarning("Trying to select too many ingredients!");
 	}
 
-	public void DeselectIngredient(IngredientData deselectedIngredient)
+	public void DeselectIngredient(IngredientData deselectedIngredient, int index)
 	{
-		currentIngredients.Remove(deselectedIngredient);
+		if (currentIngredients[index] != deselectedIngredient)
+		{
+			Debug.LogError("something has gone terribly wrong");
+			return;
+		}
+
+		currentIngredients[index] = null;
 		Game.instance.OnSelectedIngredientsUpdate();
 	}
 
-	public List<IngredientData> SelectedIngredients { get { return currentIngredients; } }
+	public void ClearIngredients()
+	{
+		for (int i = 0; i < k_maxCurrentIngredients; i++)
+		{
+			currentIngredients[i] = null;
+		}
+        Game.instance.OnSelectedIngredientsUpdate();
+	}
+
+	public IngredientData[] SelectedIngredients { get { return currentIngredients; } }
+
+	public int NumberOfSelectedIngredients
+	{
+		get
+		{
+			int num = 0;
+			for (int i = 0; i < currentIngredients.Length; i++)
+			{
+				if (currentIngredients[i] != null)
+					num++;
+			}
+			return num;
+		}
+	}
 }
