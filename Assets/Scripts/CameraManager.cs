@@ -7,6 +7,12 @@ public class CameraManager : MonoBehaviour
 {   
 	public static CameraManager instance = null;
 
+	public enum CameraPosition
+	{
+		BowlView,
+        CabinetView,
+	}
+
     private void Awake()
     {
         //singleton time!
@@ -20,28 +26,47 @@ public class CameraManager : MonoBehaviour
     
 	[SerializeField] private AnimationCurve cameraMoveCurve;
     
-	private readonly Vector3 bowlViewPosition = new Vector3(0f, 0f, -10f);
-	private readonly Vector3 cabinetViewPosition = new Vector3(0f, -5.47f, -10f);
+	public CameraPosition currentPosition = CameraPosition.BowlView;
+    
+	public readonly Vector3 bowlViewPosition = new Vector3(0f, 0f, -10f);
+	public readonly Vector3 cabinetViewPosition = new Vector3(0f, -5.47f, -10f);
     
 	private const float cameraMoveTime = 1f;
-    
-	public void StartMoveUp()
-    {
-		StartCoroutine(MoveCamera(cabinetViewPosition, bowlViewPosition, cameraMoveTime));
-	}
 
-    public void StartMoveDown()
+	public void StartMoveCamera(CameraPosition targetPosition)
     {
-		StartCoroutine(MoveCamera(bowlViewPosition, cabinetViewPosition, cameraMoveTime));
+		if (targetPosition == currentPosition)
+		{
+			Debug.LogWarning("target position is same as current position! not moving the camera.");
+			return;
+		}
+
+		switch (targetPosition)
+		{
+			case CameraPosition.BowlView:
+			{
+				StartCoroutine(MoveCamera(bowlViewPosition));
+				break;
+			}
+			case CameraPosition.CabinetView:
+			{
+				StartCoroutine(MoveCamera(cabinetViewPosition));
+				break;
+			}
+		}
+        
+        currentPosition = targetPosition;
     }
     
-	private IEnumerator MoveCamera(Vector3 origin, Vector3 target, float duration)
+	public IEnumerator MoveCamera(Vector3 target)
 	{
+		Vector3 origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
 		float journey = 0f;
-        while (journey <= duration)
+		while (journey <= cameraMoveTime)
         {
             journey = journey + Time.deltaTime;
-            float percent = Mathf.Clamp01(journey / duration);
+			float percent = Mathf.Clamp01(journey / cameraMoveTime);
 
 			float curvePercent = cameraMoveCurve.Evaluate(percent);
             transform.position = Vector3.Lerp(origin, target, curvePercent);

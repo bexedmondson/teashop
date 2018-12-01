@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
     {
 		UIManager.instance.HideSpeechBubble();
 
-		CameraManager.instance.StartMoveDown();
+		//CameraManager.instance.StartMove();
 
         /*if (chosenIngredient == null)
         {

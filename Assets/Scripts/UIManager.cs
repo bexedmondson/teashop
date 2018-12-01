@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
 
 	[SerializeField] private Image teaBag;
 
+	[SerializeField] private Button moveButton;
+
 	void Start()
 	{
 		speechBubbleObject.SetActive(false);
@@ -53,5 +55,21 @@ public class UIManager : MonoBehaviour
 	public void OnTeaBagClicked()
 	{
 		teaBag.gameObject.SetActive(false);
+	}
+
+	public void OnMoveButtonClicked()
+	{
+		CameraManager manager = CameraManager.instance;
+
+		if (manager.currentPosition == CameraManager.CameraPosition.BowlView)
+		{
+			manager.StartMoveCamera(CameraManager.CameraPosition.CabinetView);
+			moveButton.gameObject.transform.Rotate(new Vector3(0, 0, 180));
+		}
+		else if (manager.currentPosition == CameraManager.CameraPosition.CabinetView)
+		{
+			manager.StartMoveCamera(CameraManager.CameraPosition.BowlView);
+			moveButton.gameObject.transform.Rotate(new Vector3(0, 0, 180));
+		}
 	}
 }
