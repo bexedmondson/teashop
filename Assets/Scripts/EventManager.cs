@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 public class EventManager : MonoBehaviour
 {
+	//TODO: rework into scriptable object?
+	public static string SwipeUp = "SwipeUp";
+	public static string SwipeDown = "SwipeDown";
+
 
     private Dictionary<string, UnityEvent> eventDictionary;
 

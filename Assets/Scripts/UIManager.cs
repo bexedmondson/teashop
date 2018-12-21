@@ -28,6 +28,12 @@ public class UIManager : MonoBehaviour
 
 	private Animator speechBubbleAnimator;
 
+	private void OnEnable()
+	{
+		EventManager.StartListening(EventManager.SwipeUp, OnMoveButtonClicked);
+		EventManager.StartListening(EventManager.SwipeDown, OnMoveButtonClicked);
+	}
+
 	void Start()
 	{
 		speechBubbleObject.SetActive(false);
