@@ -71,18 +71,6 @@ public class Game : MonoBehaviour
     public void SpeechNext()
     {
 		UIManager.instance.HideSpeechBubble();
-
-		//CameraManager.instance.StartMove();
-
-        /*if (chosenIngredient == null)
-        {
-            
-        }
-        else
-        {
-            chosenIngredient = null;
-            CustomerArrives();
-        }*/
     }
 
 	public void OnSelectedIngredientsUpdate()
