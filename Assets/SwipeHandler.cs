@@ -12,6 +12,8 @@ public class SwipeHandler : MonoBehaviour
 		Left
 	}
 
+	private const float swipeSensitivity = 10f;
+
 	private bool swiping = false;
 	private bool eventSent = false;
 	private Vector2 lastPosition;
@@ -21,9 +23,7 @@ public class SwipeHandler : MonoBehaviour
 		if (Input.touchCount == 0)
 			return;
 
-		Debug.Log("a touch!");
-
-		if (Input.GetTouch(0).deltaPosition.sqrMagnitude != 0)
+		if (Input.GetTouch(0).deltaPosition.sqrMagnitude >= swipeSensitivity)
 		{         
 			if (swiping == false)
 			{
@@ -65,8 +65,6 @@ public class SwipeHandler : MonoBehaviour
 
 	private void Swipe(SwipeDirection direction)
 	{
-		Debug.Log("swipe! direction: " + direction.ToString());
-
 		if (direction == SwipeDirection.Up)
 			EventManager.TriggerEvent(EventManager.SwipeUp);
 		else if (direction == SwipeDirection.Down)
