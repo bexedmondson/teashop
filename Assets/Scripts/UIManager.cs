@@ -26,9 +26,12 @@ public class UIManager : MonoBehaviour
 
 	[SerializeField] private Button moveButton;
 
+	private Animator speechBubbleAnimator;
+
 	void Start()
 	{
 		speechBubbleObject.SetActive(false);
+		speechBubbleAnimator = speechBubbleObject.GetComponent<Animator>();
 	}
 
 	public void ShowSpeechBubble(string text)
@@ -65,11 +68,17 @@ public class UIManager : MonoBehaviour
 		{
 			manager.StartMoveCamera(CameraManager.CameraPosition.CabinetView);
 			moveButton.gameObject.transform.Rotate(new Vector3(0, 0, 180));
+
+			speechBubbleAnimator.ResetTrigger("MoveDown");
+			speechBubbleAnimator.SetTrigger("MoveUp");
 		}
 		else if (manager.currentPosition == CameraManager.CameraPosition.CabinetView)
 		{
 			manager.StartMoveCamera(CameraManager.CameraPosition.BowlView);
 			moveButton.gameObject.transform.Rotate(new Vector3(0, 0, 180));
+
+			speechBubbleAnimator.ResetTrigger("MoveUp");
+            speechBubbleAnimator.SetTrigger("MoveDown");
 		}
 	}
 }
