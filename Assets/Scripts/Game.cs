@@ -71,26 +71,23 @@ public class Game : MonoBehaviour
     public void SpeechNext()
     {
 		UIManager.instance.HideSpeechBubble();
-
-		CameraManager.instance.StartMoveDown();
-
-        /*if (chosenIngredient == null)
-        {
-            
-        }
-        else
-        {
-            chosenIngredient = null;
-            CustomerArrives();
-        }*/
     }
 
 	public void OnSelectedIngredientsUpdate()
 	{
-		for (int i = 0; i < ingredientManager.currentIngredients.Count; i++)
+		for (int i = 0; i < IngredientManager.k_maxCurrentIngredients; i++)
 		{
-			selectedIngredientHolders[i].SelectIngredient(ingredientManager.currentIngredients[i]);
+			if (ingredientManager.currentIngredients[i] != null)
+			    selectedIngredientHolders[i].OnIngredientSelected(ingredientManager.currentIngredients[i]);
 		}
+	}
+
+	public void ClearIngredients()
+	{
+		for (int i = 0; i < IngredientManager.k_maxCurrentIngredients; i++)
+        {
+			selectedIngredientHolders[i].ClearIngredient();
+        }
 	}
 
 	public void ChooseTea(IngredientData ingredient)
