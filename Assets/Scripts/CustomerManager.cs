@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomerLibrary : MonoBehaviour {
+public class CustomerManager : MonoBehaviour {
 
 	public List<CustomerData> customerDataList;
 
