@@ -54,11 +54,6 @@ public class UIManager : MonoBehaviour
 	public void OnTeaMixed()
 	{
 		teaBag.gameObject.SetActive(true);
-		Animator anim = teaBag.GetComponent<Animator>();
-		if (anim != null)
-		{
-			anim.Play("Animate");
-		}
 	}
 
 	public void OnTeaBagClicked()

@@ -9,10 +9,22 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 	private Rigidbody2D teaMix;
 
 	private const float k_forceMultiplier = 0.01f;
+	private const float k_teaSpinAmountTarget = 5000f;
+
+	private float teaSpinAmount = 0f;
 
 	public void OnDrag(PointerEventData eventData)
 	{
 		teaMix.AddForceAtPosition(eventData.delta * Time.deltaTime * k_forceMultiplier, eventData.position, ForceMode2D.Force);
+        
+		teaSpinAmount += eventData.delta.magnitude;
+
+		if (teaSpinAmount > k_teaSpinAmountTarget)
+		{
+			TeaMixed();
+
+			UIManager.instance.OnTeaMixed();
+		}
 	}
 
 	public void OnPointerClick(PointerEventData pointerEventData)
@@ -20,27 +32,15 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 		if (Game.instance.IngredientManager.NumberOfSelectedIngredients >= 1)
 		{
             teaMix.gameObject.SetActive(true);
-
-			StartCoroutine(SpinTea());
         }
 
         Game.instance.ClearIngredients();
 		Game.instance.IngredientManager.ClearIngredients();
-    }   
+    }
 
-	private IEnumerator SpinTea()
+	private void TeaMixed()
 	{
-		//int i = 0;
-
-		//while (i < 365)
-		//{
-			//i += 5;
-		//teaMix.AddForceAtPosition(new Vector2(10, 10), new Vector2(5, 5), ForceMode2D.Force);    //.Rotate(new Vector3(0, 0, 10f));
-		yield return null;
-		//}
-
-		//teaMix.gameObject.SetActive(false);
-
-		//UIManager.instance.OnTeaMixed();
+		
+		teaMix.gameObject.SetActive(false);
 	}
 }
