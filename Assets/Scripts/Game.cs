@@ -90,19 +90,14 @@ public class Game : MonoBehaviour
         }
 	}
 
-	public void ChooseTea(IngredientData ingredient)
-    {
-        chosenIngredient = ingredient;
-    }
-
     public void TeaChosen()
     {
-        SetSuccess();
+        CalculateSuccess();
 
         customerLibrary.MarkCustomerServed(currentCustomer);
     }
 
-    private void SetSuccess()
+	private void CalculateSuccess()
     {
 		if (currentCustomer.GetStat(StatData.StatType.Insomnia) <= chosenIngredient.GetStat(StatData.StatType.Insomnia)
 		    && currentCustomer.GetStat(StatData.StatType.Insomnia) <= chosenIngredient.GetStat(StatData.StatType.Stress))
