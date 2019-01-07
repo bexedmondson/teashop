@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CustomerLibrary))]
+[RequireComponent(typeof(CustomerManager))]
 [RequireComponent(typeof(IngredientManager))]
 public class Game : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class Game : MonoBehaviour
     }
 
 
-    private CustomerLibrary customerLibrary;
+    private CustomerManager customerLibrary;
 
 	private IngredientManager ingredientManager;
 	public IngredientManager IngredientManager { get { return ingredientManager; } }
@@ -36,7 +36,7 @@ public class Game : MonoBehaviour
 
     void Start()
     {
-        customerLibrary = GetComponent<CustomerLibrary>();
+        customerLibrary = GetComponent<CustomerManager>();
         ingredientManager = GetComponent<IngredientManager>();
 
 		SetupScene();
