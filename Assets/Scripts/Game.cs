@@ -19,29 +19,23 @@ public class Game : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-
+        
         DontDestroyOnLoad(gameObject);
+
+		ingredientManager = GetComponent<IngredientManager>();
+
+        EventManager.StartListening(EventManager.NextCustomer, CustomerArrives);
     }
-
-
-    private CustomerManager customerLibrary;
+    
 
 	private IngredientManager ingredientManager;
 	public IngredientManager IngredientManager { get { return ingredientManager; } }
 
-    private Customer currentCustomer;
-
-    private IngredientData chosenIngredient = null;
-
+    private IngredientData chosenIngredient = null;   
 
     void Start()
     {
-        customerLibrary = GetComponent<CustomerManager>();
-        ingredientManager = GetComponent<IngredientManager>();
-
-		SetupScene();
-
-        CustomerArrives();
+        SetupScene();
     }
 
 	private void SetupScene()
@@ -53,24 +47,21 @@ public class Game : MonoBehaviour
 				ingredientSpawnPoints[i].AssignDataToObject(ingredientManager.ingredientMasterList[i]);
 			}
 		}
+
+		EventManager.TriggerEvent(EventManager.NextCustomer);
 	}
 
     private void CustomerArrives()
     {
-        currentCustomer = customerLibrary.GetRandomUnservedCustomer();
+        Customer currentCustomer = CustomerManager.instance.GetNextUnservedCustomer();
 
         if (currentCustomer == null)
         {
-            ShowResults();
+            //ShowResults();
             return;
         }
 
-		UIManager.instance.ShowSpeechBubble(currentCustomer.FirstEnquiry);
-    }
-
-    public void SpeechNext()
-    {
-		UIManager.instance.HideSpeechBubble();
+		UIManager.instance.ShowSpeechBubble(currentCustomer.data.FirstEnquiry);
     }
 
 	public void OnSelectedIngredientsUpdate()
@@ -90,11 +81,11 @@ public class Game : MonoBehaviour
         }
 	}
 
-    public void TeaChosen()
+    /*public void TeaChosen()
     {
         CalculateSuccess();
 
-        customerLibrary.MarkCustomerServed(currentCustomer);
+        customerManager.MarkCustomerServed(currentCustomer);
     }
 
 	private void CalculateSuccess()
@@ -114,7 +105,7 @@ public class Game : MonoBehaviour
     {
         string resultString = "";
 
-        foreach (Customer customer in customerLibrary.customers)
+        foreach (Customer customer in customerManager.customers)
         {
             if (customer.beenServed)
             {
@@ -129,7 +120,7 @@ public class Game : MonoBehaviour
                 resultString += "\n";
             }
         }
-    }
+    }*/
 
     public void QuitGame()
     {

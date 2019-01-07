@@ -54,11 +54,15 @@ public class UIManager : MonoBehaviour
 	public void OnTeaMixed()
 	{
 		teaBag.gameObject.SetActive(true);
+
+		ShowSpeechBubble(CustomerManager.instance.GetCurrentCustomerThankYou());
 	}
 
 	public void OnTeaBagClicked()
 	{
 		teaBag.gameObject.SetActive(false);
+
+		EventManager.TriggerEvent(EventManager.CustomerServed);
 	}
 
 	public void OnMoveButtonClicked()

@@ -1553,11 +1553,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1214923847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b4c4d386924b459bb844911e7fc9022, type: 3}
+  m_Script: {fileID: 11500000, guid: 339ea6e5388e84e19817a7e1fa13a3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   customerDataList:
   - {fileID: 11400000, guid: 6595332743d7e4fce946776fe6404fd1, type: 2}
+  - {fileID: 11400000, guid: 9c573b08e3c57499498d645f6020b319, type: 2}
 --- !u!114 &1214923850
 MonoBehaviour:
   m_ObjectHideFlags: 0

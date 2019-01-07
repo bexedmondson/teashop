@@ -8,6 +8,8 @@ public class EventManager : MonoBehaviour
 	//TODO: rework into scriptable object?
 	public static string SwipeUp = "SwipeUp";
 	public static string SwipeDown = "SwipeDown";
+	public static string NextCustomer = "NextCustomer";
+	public static string CustomerServed = "CustomerServed";   
 
 
     private Dictionary<string, UnityEvent> eventDictionary;

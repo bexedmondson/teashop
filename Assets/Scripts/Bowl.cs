@@ -11,15 +11,15 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 	private const float k_forceMultiplier = 0.01f;
 	private const float k_teaSpinAmountTarget = 5000f;
 
-	private float teaSpinAmount = 0f;
+	private float teaSpinAmountTotal = 0f;
 
 	public void OnDrag(PointerEventData eventData)
 	{
 		teaMix.AddForceAtPosition(eventData.delta * Time.deltaTime * k_forceMultiplier, eventData.position, ForceMode2D.Force);
         
-		teaSpinAmount += eventData.delta.magnitude;
+		teaSpinAmountTotal += eventData.delta.magnitude;
 
-		if (teaSpinAmount > k_teaSpinAmountTarget)
+		if (teaSpinAmountTotal > k_teaSpinAmountTarget)
 		{
 			TeaMixed();
 
@@ -40,7 +40,8 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 
 	private void TeaMixed()
 	{
+		teaSpinAmountTotal = 0f;
 		
-		teaMix.gameObject.SetActive(false);
+        teaMix.gameObject.SetActive(false);
 	}
 }

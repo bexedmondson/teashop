@@ -4,14 +4,19 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "TeaShop/CustomerData")]
 public class CustomerData : ScriptableObject 
-{   
-	public string firstName;
+{
+	[SerializeField] private string firstName;
+	public string FirstName { get { return firstName; } }
 
-	public Sprite sprite;
+	[SerializeField] private Sprite sprite;
+	public Sprite Sprite { get { return sprite; } }
 
-	public List<StatData> statData;
+	[SerializeField] private List<StatData> statData;
+	public List<StatData> StatData { get { return statData; } }
 
-    public string firstEnquiry;
+	[SerializeField] private string firstEnquiry;
+	public string FirstEnquiry { get { return firstEnquiry; } }
 
-	public string thankYou;
+	[SerializeField] private string thankYou;
+	public string ThankYou { get { return thankYou; } }
 }

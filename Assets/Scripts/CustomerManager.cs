@@ -2,7 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomerManager : MonoBehaviour {
+public class CustomerManager : MonoBehaviour 
+{
+	public static CustomerManager instance = null;
+
+    private void Awake()
+    {
+        //singleton time!
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+
+		EventManager.StartListening(EventManager.CustomerServed, MarkCurrentCustomerServed);
+        
+        InitialiseCustomers();
+    }
+
 
 	public List<CustomerData> customerDataList;
 
@@ -11,32 +29,42 @@ public class CustomerManager : MonoBehaviour {
 
 	private List<Customer> unservedCustomers = new List<Customer>();
 
-	private void Awake()
+    private Customer currentCustomer;
+
+
+	private void InitialiseCustomers()
 	{
 		foreach (CustomerData customerData in customerDataList)
 		{
 			Customer c = new Customer(customerData);
-
+            
 			customers.Add(c);
-			unservedCustomers.Add(c); //TODO change this
+			unservedCustomers.Add(c);
 		}
-	}   
+	}
 
-	public Customer GetRandomUnservedCustomer()
+	public Customer GetNextUnservedCustomer()
 	{      
 		Customer customer = null;
 
 		if (unservedCustomers.Count == 0)
 			return customer;
 
-		customer = unservedCustomers[Random.Range(0, unservedCustomers.Count)];
+		currentCustomer = unservedCustomers[Random.Range(0, unservedCustomers.Count)];
 
-		return customer;
+		return currentCustomer;
     }
-    
-	public void MarkCustomerServed(Customer customer)
+
+	public string GetCurrentCustomerThankYou()
 	{
-        customer.beenServed = true;
-		unservedCustomers.Remove(customer);
+		return currentCustomer.data.ThankYou;
+	}
+    
+	public void MarkCurrentCustomerServed()
+	{
+        currentCustomer.beenServed = true;
+		unservedCustomers.Remove(currentCustomer);
+
+		EventManager.TriggerEvent(EventManager.NextCustomer);
 	}
 }

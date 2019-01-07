@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef21a9ef8ba9f4b049b8f556333e9603, type: 3}
-  m_Name: Alice
+  m_Name: Bob
   m_EditorClassIdentifier: 
-  firstName: Alice
+  firstName: Bob
   sprite: {fileID: 0}
   statData: []
-  firstEnquiry: TEST FIRST ENQUIRY
-  thankYou: TEST THANK YOU
+  firstEnquiry: TEST FIRST ENQUIRY 2
+  thankYou: TEST THANK YOU 2
