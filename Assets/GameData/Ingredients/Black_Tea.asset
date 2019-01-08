@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Black Tea
   itemSprite: {fileID: 21300000, guid: 90e7ec968f2f0c44c90f53c7e4a74d21, type: 3}
+  mixSprite: {fileID: 21300000, guid: 0631f97fcf09c4a4099ad24e462db946, type: 3}
   statData: []

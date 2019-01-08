@@ -8,7 +8,7 @@ public class IngredientManager : MonoBehaviour
     
 	public List<IngredientData> ingredientMasterList;
 
-	//[HideInInspector]
+	[HideInInspector]
 	public IngredientData[] currentIngredients;
 
 	private void Awake()

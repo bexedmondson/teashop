@@ -6,16 +6,20 @@ using UnityEngine.EventSystems;
 public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 {
 	[SerializeField]
-	private Rigidbody2D teaMix;
+	private Rigidbody2D[] mixRigidbodies;
+
+	[SerializeField]
+	private SpriteRenderer[] mixSprites;
 
 	private const float k_forceMultiplier = 0.01f;
-	private const float k_teaSpinAmountTarget = 5000f;
+	private const float k_teaSpinAmountTarget = 10000f;
 
 	private float teaSpinAmountTotal = 0f;
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		teaMix.AddForceAtPosition(eventData.delta * Time.deltaTime * k_forceMultiplier, eventData.position, ForceMode2D.Force);
+		foreach (Rigidbody2D mixRigidbody in mixRigidbodies)
+			mixRigidbody.AddForceAtPosition(eventData.delta * Time.deltaTime * k_forceMultiplier, eventData.position, ForceMode2D.Force);
         
 		teaSpinAmountTotal += eventData.delta.magnitude;
 
@@ -31,7 +35,23 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
     {      
 		if (Game.instance.IngredientManager.NumberOfSelectedIngredients >= 1)
 		{
-            teaMix.gameObject.SetActive(true);
+			foreach (Rigidbody2D mixRigidbody in mixRigidbodies)
+				mixRigidbody.gameObject.SetActive(true);
+
+			IngredientData[] currentIngredients = Game.instance.IngredientManager.currentIngredients;
+
+			for (int i = 0; i < currentIngredients.Length; i++)
+			{
+				if (currentIngredients[i] != null)
+				{
+					mixSprites[i].gameObject.SetActive(true);
+					mixSprites[i].sprite = currentIngredients[i].mixSprite;
+				}
+				else
+				{
+					mixSprites[i].gameObject.SetActive(false);
+				}
+			}
         }
 
         Game.instance.ClearIngredients();
@@ -41,7 +61,8 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 	private void TeaMixed()
 	{
 		teaSpinAmountTotal = 0f;
-		
-        teaMix.gameObject.SetActive(false);
+        
+		foreach (Rigidbody2D mixRigidbody in mixRigidbodies)
+            mixRigidbody.gameObject.SetActive(false);
 	}
 }

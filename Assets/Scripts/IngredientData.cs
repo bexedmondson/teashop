@@ -10,6 +10,8 @@ public class IngredientData : ScriptableObject
 
     public Sprite itemSprite;
 
+	public Sprite mixSprite;
+
 	public List<StatData> statData;
 
 	public int GetStat(StatData.StatType stat)
