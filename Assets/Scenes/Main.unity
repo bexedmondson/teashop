@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 219139430}
   - component: {fileID: 219139431}
   - component: {fileID: 219139432}
+  - component: {fileID: 219139433}
   m_Layer: 0
   m_Name: Disc_3
   m_TagString: Untagged
@@ -310,6 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f65a8a5d01489292a1193714802d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
+    type: 2}
   index: 2
   ingredientSpriteRenderer: {fileID: 950099284}
 --- !u!61 &219139432
@@ -337,6 +340,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &219139433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219139428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d0389ac3e454b0a8183a94f2ab9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0040f8ff52f9f40a3b5ef813bef829f2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 219139431}
+        m_MethodName: RefreshIngredientData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &258751326
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebab9cb184cd49e29dc23ed2366ce77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientData: {fileID: 11400000, guid: 85a37f6e6d5daa843894cd2a0037766e, type: 2}
+  currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
+    type: 2}
   ingredientSpriteRenderer: {fileID: 535992404}
+  currentIngredientsChangedEvent: {fileID: 11400000, guid: 0040f8ff52f9f40a3b5ef813bef829f2,
+    type: 2}
 --- !u!212 &258751330
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -836,6 +872,7 @@ GameObject:
   - component: {fileID: 535952228}
   - component: {fileID: 535952229}
   - component: {fileID: 535952230}
+  - component: {fileID: 535952231}
   m_Layer: 0
   m_Name: Disc_4
   m_TagString: Untagged
@@ -914,6 +951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f65a8a5d01489292a1193714802d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
+    type: 2}
   index: 3
   ingredientSpriteRenderer: {fileID: 1632607285}
 --- !u!61 &535952230
@@ -941,6 +980,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &535952231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 535952226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d0389ac3e454b0a8183a94f2ab9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0040f8ff52f9f40a3b5ef813bef829f2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 535952229}
+        m_MethodName: RefreshIngredientData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &535992402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1221,8 @@ MonoBehaviour:
   - {fileID: 1097721156}
   - {fileID: 1968698682}
   - {fileID: 1943487578}
+  currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
+    type: 2}
 --- !u!61 &774880679
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1222,7 +1291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebab9cb184cd49e29dc23ed2366ce77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientData: {fileID: 11400000, guid: e7b222ebcffd242c6b9d36f128d99058, type: 2}
+  currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
+    type: 2}
   ingredientSpriteRenderer: {fileID: 323500297}
+  currentIngredientsChangedEvent: {fileID: 11400000, guid: 0040f8ff52f9f40a3b5ef813bef829f2,
+    type: 2}
 --- !u!212 &839450566
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1623,7 +1697,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1214923851}
-  - component: {fileID: 1214923850}
   - component: {fileID: 1214923849}
   - component: {fileID: 1214923848}
   - component: {fileID: 1214923852}
@@ -1654,6 +1727,8 @@ MonoBehaviour:
   - {fileID: 1540269617}
   - {fileID: 219139431}
   - {fileID: 535952229}
+  currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
+    type: 2}
 --- !u!114 &1214923849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1668,21 +1743,6 @@ MonoBehaviour:
   customerDataList:
   - {fileID: 11400000, guid: 6595332743d7e4fce946776fe6404fd1, type: 2}
   - {fileID: 11400000, guid: 9c573b08e3c57499498d645f6020b319, type: 2}
---- !u!114 &1214923850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1214923847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb5a648f6cf7422faf82f89b2af518a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientMasterList:
-  - {fileID: 11400000, guid: e7b222ebcffd242c6b9d36f128d99058, type: 2}
-  - {fileID: 11400000, guid: 85a37f6e6d5daa843894cd2a0037766e, type: 2}
-  currentIngredients: []
 --- !u!4 &1214923851
 Transform:
   m_ObjectHideFlags: 0
@@ -2170,6 +2230,7 @@ GameObject:
   - component: {fileID: 1540269616}
   - component: {fileID: 1540269617}
   - component: {fileID: 1540269618}
+  - component: {fileID: 1540269619}
   m_Layer: 0
   m_Name: Disc_2
   m_TagString: Untagged
@@ -2248,6 +2309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f65a8a5d01489292a1193714802d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
+    type: 2}
   index: 1
   ingredientSpriteRenderer: {fileID: 485860264}
 --- !u!61 &1540269618
@@ -2275,6 +2338,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &1540269619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1540269614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d0389ac3e454b0a8183a94f2ab9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0040f8ff52f9f40a3b5ef813bef829f2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1540269617}
+        m_MethodName: RefreshIngredientData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1632607283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2920,7 @@ GameObject:
   - component: {fileID: 1969025773}
   - component: {fileID: 1969025774}
   - component: {fileID: 1969025775}
+  - component: {fileID: 1969025776}
   m_Layer: 0
   m_Name: Disc_1
   m_TagString: Untagged
@@ -2907,6 +2999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611f65a8a5d01489292a1193714802d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
+    type: 2}
   index: 0
   ingredientSpriteRenderer: {fileID: 1039566741}
 --- !u!61 &1969025775
@@ -2934,6 +3028,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &1969025776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969025771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d0389ac3e454b0a8183a94f2ab9b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0040f8ff52f9f40a3b5ef813bef829f2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1969025774}
+        m_MethodName: RefreshIngredientData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2077777292
 GameObject:
   m_ObjectHideFlags: 0

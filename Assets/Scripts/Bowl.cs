@@ -11,6 +11,8 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 	[SerializeField]
 	private SpriteRenderer[] mixSprites;
 
+    [SerializeField] private IngredientEditableList currentIngredientList;
+
 	private const float k_forceMultiplier = 0.01f;
 	private const float k_teaSpinAmountTarget = 10000f;
 
@@ -33,14 +35,14 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 
 	public void OnPointerClick(PointerEventData pointerEventData)
     {      
-		if (Game.instance.IngredientManager.NumberOfSelectedIngredients >= 1)
+		if (currentIngredientList.NumberOfIngredients >= 1)
 		{
 			foreach (Rigidbody2D mixRigidbody in mixRigidbodies)
 				mixRigidbody.gameObject.SetActive(true);
 
-			IngredientData[] currentIngredients = Game.instance.IngredientManager.currentIngredients;
+			List<IngredientData> currentIngredients = currentIngredientList.GetIngredients(); //TODO: CHANGE THIS
 
-			for (int i = 0; i < currentIngredients.Length; i++)
+			for (int i = 0; i < currentIngredients.Count; i++)
 			{
 				if (currentIngredients[i] != null)
 				{
@@ -54,8 +56,7 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 			}
         }
 
-        Game.instance.ClearIngredients();
-		Game.instance.IngredientManager.ClearIngredients();
+        currentIngredientList.Clear();
     }
 
 	private void TeaMixed()

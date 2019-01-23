@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CustomerManager))]
-[RequireComponent(typeof(IngredientManager))]
 public class Game : MonoBehaviour
 {
     public static Game instance = null;
 
 	public List<IngredientPile> ingredientSpawnPoints;
 	public List<IngredientHolder> selectedIngredientHolders;
+
+	[SerializeField] private IngredientEditableList currentIngredientList;
 
     private void Awake()
     {
@@ -22,14 +23,8 @@ public class Game : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
 
-		ingredientManager = GetComponent<IngredientManager>();
-
         EventManager.StartListening(EventManager.NextCustomer, CustomerArrives);
     }
-    
-
-	private IngredientManager ingredientManager;
-	public IngredientManager IngredientManager { get { return ingredientManager; } }
 
     private IngredientData chosenIngredient = null;   
 
@@ -39,15 +34,7 @@ public class Game : MonoBehaviour
     }
 
 	private void SetupScene()
-	{
-		for (int i = 0; i < ingredientSpawnPoints.Count; i++)
-		{
-			if (i < ingredientManager.ingredientMasterList.Count)
-			{
-				ingredientSpawnPoints[i].AssignDataToObject(ingredientManager.ingredientMasterList[i]);
-			}
-		}
-
+	{      
 		EventManager.TriggerEvent(EventManager.NextCustomer);
 	}
 
@@ -63,23 +50,6 @@ public class Game : MonoBehaviour
 
 		UIManager.instance.ShowSpeechBubble(currentCustomer.data.FirstEnquiry);
     }
-
-	public void OnSelectedIngredientsUpdate()
-	{
-		for (int i = 0; i < IngredientManager.k_maxCurrentIngredients; i++)
-		{
-			if (ingredientManager.currentIngredients[i] != null)
-			    selectedIngredientHolders[i].OnIngredientSelected(ingredientManager.currentIngredients[i]);
-		}
-	}
-
-	public void ClearIngredients()
-	{
-		for (int i = 0; i < IngredientManager.k_maxCurrentIngredients; i++)
-        {
-			selectedIngredientHolders[i].ClearIngredient();
-        }
-	}
 
     /*public void TeaChosen()
     {
