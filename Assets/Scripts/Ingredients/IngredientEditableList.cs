@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Ingredients/IngredientEditableList")]
-public class IngredientEditableList
+public class IngredientEditableList : ScriptableObject
 {
-	private List<IngredientData> ingredients;
+	private List<IngredientData> ingredients = new List<IngredientData> { null, null, null, null };
 
 	[SerializeField] private GameEvent selectedIngredientsChangedEvent;
 

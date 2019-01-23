@@ -440,8 +440,6 @@ MonoBehaviour:
   currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
     type: 2}
   ingredientSpriteRenderer: {fileID: 535992404}
-  currentIngredientsChangedEvent: {fileID: 11400000, guid: 0040f8ff52f9f40a3b5ef813bef829f2,
-    type: 2}
 --- !u!212 &258751330
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1295,8 +1293,6 @@ MonoBehaviour:
   currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
     type: 2}
   ingredientSpriteRenderer: {fileID: 323500297}
-  currentIngredientsChangedEvent: {fileID: 11400000, guid: 0040f8ff52f9f40a3b5ef813bef829f2,
-    type: 2}
 --- !u!212 &839450566
 SpriteRenderer:
   m_ObjectHideFlags: 0
