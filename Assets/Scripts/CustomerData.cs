@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [CreateAssetMenu(menuName = "TeaShop/CustomerData")]
 public class CustomerData : ScriptableObject 
@@ -19,4 +20,13 @@ public class CustomerData : ScriptableObject
 
 	[SerializeField] private string thankYou;
 	public string ThankYou { get { return thankYou; } }
+
+    public bool beenServed = false;
+
+    public bool successfulTea = false;
+
+	public int GetStatValue(StatData.StatType stat)
+    {
+        return statData.FirstOrDefault(statData => statData.statType == stat).statValue;
+    }
 }
