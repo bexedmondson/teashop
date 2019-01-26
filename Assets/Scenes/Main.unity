@@ -1671,6 +1671,7 @@ MonoBehaviour:
   speechBubbleText: {fileID: 305719740}
   teaBag: {fileID: 1472463374}
   moveButton: {fileID: 1803010092}
+  currentCustomer: {fileID: 11400000, guid: fe05f043b6da44e9b82639af154d942d, type: 2}
 --- !u!4 &1171091736
 Transform:
   m_ObjectHideFlags: 0
@@ -1693,7 +1694,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1214923851}
-  - component: {fileID: 1214923849}
   - component: {fileID: 1214923848}
   - component: {fileID: 1214923852}
   - component: {fileID: 1214923853}
@@ -1715,28 +1715,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c8cf3336ae64049b92b95be82a5aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientSpawnPoints:
-  - {fileID: 839450565}
-  - {fileID: 0}
-  selectedIngredientHolders:
-  - {fileID: 1969025774}
-  - {fileID: 1540269617}
-  - {fileID: 219139431}
-  - {fileID: 535952229}
   currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
     type: 2}
---- !u!114 &1214923849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1214923847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 339ea6e5388e84e19817a7e1fa13a3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customerDataList: {fileID: 11400000, guid: 7df9f371fffed4ca481b7073aa4f9de7, type: 2}
+  currentCustomerManager: {fileID: 11400000, guid: 107059cf8d57d463e9cf68b14c5f06db,
+    type: 2}
+  currentCustomer: {fileID: 11400000, guid: fe05f043b6da44e9b82639af154d942d, type: 2}
 --- !u!4 &1214923851
 Transform:
   m_ObjectHideFlags: 0

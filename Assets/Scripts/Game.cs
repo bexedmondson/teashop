@@ -10,6 +10,8 @@ public class Game : MonoBehaviour
 	[SerializeField] private IngredientEditableList currentIngredientList;
 	[SerializeField] private CurrentCustomerManager currentCustomerManager;
 
+	[SerializeField] private CurrentCustomer currentCustomer;
+
     private void Awake()
     {
         //singleton time!
@@ -23,29 +25,22 @@ public class Game : MonoBehaviour
         EventManager.StartListening(EventManager.NextCustomer, CustomerArrives);
     }
 
-    private Ingredient chosenIngredient = null;   
-
     void Start()
     {
-        SetupScene();
-    }
-
-	private void SetupScene()
-	{      
 		EventManager.TriggerEvent(EventManager.NextCustomer);
-	}
+    }
 
     private void CustomerArrives()
     {
        currentCustomerManager.NextUnservedCustomer();
 
-		if (currentCustomerManager.currentCustomer.customer == null) //TODO CHANGE
+		if (currentCustomer.customer == null) //TODO CHANGE
         {
             //ShowResults();
             return;
         }
 
-		UIManager.instance.ShowSpeechBubble(currentCustomerManager.currentCustomer.customer.FirstEnquiry);
+		UIManager.instance.ShowSpeechBubble(currentCustomer.customer.FirstEnquiry);
     }
 
     /*public void TeaChosen()

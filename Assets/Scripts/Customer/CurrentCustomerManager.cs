@@ -6,7 +6,7 @@ using UnityEngine;
 public class CurrentCustomerManager : ScriptableObject 
 {
 	[SerializeField]
-	public CurrentCustomer currentCustomer; //TODO MAKE PRIVATE
+	private CurrentCustomer currentCustomer;
 
 	[SerializeField]
 	private CustomerList todayCustomersList;

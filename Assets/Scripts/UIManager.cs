@@ -23,10 +23,10 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Text speechBubbleText;
 
 	[SerializeField] private Image teaBag;
-
+    
 	[SerializeField] private Button moveButton;
 
-	[SerializeField] private CurrentCustomerManager currentCustomerManager;
+	[SerializeField] private CurrentCustomer currentCustomer;
 
 	private Animator speechBubbleAnimator;
 
@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
 	{
 		teaBag.gameObject.SetActive(true);
 
-		ShowSpeechBubble(currentCustomerManager.currentCustomer.customer.ThankYou); //TODO CHANGE
+		ShowSpeechBubble(currentCustomer.customer.ThankYou); //TODO CHANGE
 	}
 
 	public void OnTeaBagClicked()
