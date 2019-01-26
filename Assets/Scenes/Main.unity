@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebab9cb184cd49e29dc23ed2366ce77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientData: {fileID: 11400000, guid: 85a37f6e6d5daa843894cd2a0037766e, type: 2}
+  ingredientData: {fileID: 11400000, guid: abd2a3d2653c84c9cbf8caeec8426f5f, type: 2}
   currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
     type: 2}
   ingredientSpriteRenderer: {fileID: 535992404}
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebab9cb184cd49e29dc23ed2366ce77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientData: {fileID: 11400000, guid: e7b222ebcffd242c6b9d36f128d99058, type: 2}
+  ingredientData: {fileID: 11400000, guid: 1e7bed6dbd8ac463eb0a6cd29b58ec7c, type: 2}
   currentIngredientList: {fileID: 11400000, guid: 27a7661b73d22415f92b5054ca5510f3,
     type: 2}
   ingredientSpriteRenderer: {fileID: 323500297}
@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientSpawnPoints:
   - {fileID: 839450565}
-  - {fileID: 258751329}
+  - {fileID: 0}
   selectedIngredientHolders:
   - {fileID: 1969025774}
   - {fileID: 1540269617}
@@ -1736,9 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339ea6e5388e84e19817a7e1fa13a3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerDataList:
-  - {fileID: 11400000, guid: 6595332743d7e4fce946776fe6404fd1, type: 2}
-  - {fileID: 11400000, guid: 9c573b08e3c57499498d645f6020b319, type: 2}
+  customerDataList: {fileID: 11400000, guid: 7df9f371fffed4ca481b7073aa4f9de7, type: 2}
 --- !u!4 &1214923851
 Transform:
   m_ObjectHideFlags: 0

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4f7de36f7764473a9f536b1d7ae910, type: 3}
+  m_Name: TodayCustomerList
+  m_EditorClassIdentifier: 
+  customers:
+  - {fileID: 11400000, guid: 6595332743d7e4fce946776fe6404fd1, type: 2}
+  - {fileID: 11400000, guid: 9c573b08e3c57499498d645f6020b319, type: 2}

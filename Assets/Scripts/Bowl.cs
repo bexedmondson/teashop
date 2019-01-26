@@ -40,7 +40,7 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 			foreach (Rigidbody2D mixRigidbody in mixRigidbodies)
 				mixRigidbody.gameObject.SetActive(true);
 
-			List<IngredientData> currentIngredients = currentIngredientList.GetIngredients(); //TODO: CHANGE THIS
+			List<Ingredient> currentIngredients = currentIngredientList.GetIngredients(); //TODO: CHANGE THIS
 
 			for (int i = 0; i < currentIngredients.Count; i++)
 			{

@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
 
 	[SerializeField] private Button moveButton;
 
+	[SerializeField] private CurrentCustomerManager currentCustomerManager;
+
 	private Animator speechBubbleAnimator;
 
 	private void OnEnable()
@@ -55,14 +57,14 @@ public class UIManager : MonoBehaviour
 	{
 		teaBag.gameObject.SetActive(true);
 
-		ShowSpeechBubble(CustomerManager.instance.GetCurrentCustomerThankYou());
+		ShowSpeechBubble(currentCustomerManager.currentCustomer.customer.ThankYou); //TODO CHANGE
 	}
 
 	public void OnTeaBagClicked()
 	{
 		teaBag.gameObject.SetActive(false);
 
-		EventManager.TriggerEvent(EventManager.CustomerServed);
+		EventManager.TriggerEvent(EventManager.NextCustomer);
 	}
 
 	public void OnMoveButtonClicked()

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[CreateAssetMenu(menuName = "TeaShop/CustomerData")]
-public class CustomerData : ScriptableObject 
+[CreateAssetMenu(menuName = "Customers/Customer")]
+public class Customer : ScriptableObject 
 {
 	[SerializeField] private string firstName;
 	public string FirstName { get { return firstName; } }

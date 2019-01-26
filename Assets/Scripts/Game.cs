@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CustomerManager))]
 public class Game : MonoBehaviour
 {
     public static Game instance = null;
 
-	public List<IngredientPile> ingredientSpawnPoints;
-	public List<IngredientHolder> selectedIngredientHolders;
-
 	[SerializeField] private IngredientEditableList currentIngredientList;
+	[SerializeField] private CurrentCustomerManager currentCustomerManager;
 
     private void Awake()
     {
@@ -26,7 +23,7 @@ public class Game : MonoBehaviour
         EventManager.StartListening(EventManager.NextCustomer, CustomerArrives);
     }
 
-    private IngredientData chosenIngredient = null;   
+    private Ingredient chosenIngredient = null;   
 
     void Start()
     {
@@ -40,15 +37,15 @@ public class Game : MonoBehaviour
 
     private void CustomerArrives()
     {
-        Customer currentCustomer = CustomerManager.instance.GetNextUnservedCustomer();
+       currentCustomerManager.NextUnservedCustomer();
 
-        if (currentCustomer == null)
+		if (currentCustomerManager.currentCustomer.customer == null) //TODO CHANGE
         {
             //ShowResults();
             return;
         }
 
-		UIManager.instance.ShowSpeechBubble(currentCustomer.data.FirstEnquiry);
+		UIManager.instance.ShowSpeechBubble(currentCustomerManager.currentCustomer.customer.FirstEnquiry);
     }
 
     /*public void TeaChosen()
