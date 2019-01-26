@@ -7,7 +7,7 @@ using System.Linq;
 
 public class IngredientPile : MonoBehaviour, IPointerClickHandler
 {   
-	[SerializeField] private IngredientData ingredientData;
+	[SerializeField] private Ingredient ingredientData;
 
 	[SerializeField] private IngredientEditableList currentIngredientList;
 

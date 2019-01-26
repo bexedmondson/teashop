@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(GameEventListener))]
 public class IngredientHolder : MonoBehaviour, IPointerClickHandler
 {   
-	private IngredientData ingredientData;
+	private Ingredient ingredientData;
 
     [SerializeField] private IngredientEditableList currentIngredientList;
 

@@ -8,10 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d76da7f1c76f1496ca5542e9f5a66d77, type: 3}
+  m_Script: {fileID: 11500000, guid: ed8f4f67ed9044d00838fd1c53719e4b, type: 3}
   m_Name: Chamomile
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Chamomile
   itemSprite: {fileID: 21300000, guid: ce48ed305aeadb849b66feeeb5646318, type: 3}
   mixSprite: {fileID: 21300000, guid: 2c91241f79b898f418ae31df8188b2bd, type: 3}
-  statData: []
+  statData:
+  - statType: 1
+    statValue: 1

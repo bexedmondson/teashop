@@ -6,21 +6,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ingredients/IngredientEditableList")]
 public class IngredientEditableList : ScriptableObject
 {
-	private List<IngredientData> ingredients = new List<IngredientData> { null, null, null, null };
+	private List<Ingredient> ingredients = new List<Ingredient> { null, null, null, null };
 
 	[SerializeField] private GameEvent selectedIngredientsChangedEvent;
 
-	public List<IngredientData> GetIngredients()
+	public List<Ingredient> GetIngredients()
 	{
 		return ingredients;
 	}
 
-	public IngredientData GetIngredientAtIndex(int index)
+	public Ingredient GetIngredientAtIndex(int index)
 	{
 		return ingredients[index];
 	}
 
-	public void SelectIngredient(IngredientData ingredient)
+	public void SelectIngredient(Ingredient ingredient)
 	{
 		for(int i = 0; i < ingredients.Count; i++)
         {
@@ -37,7 +37,7 @@ public class IngredientEditableList : ScriptableObject
         Debug.LogWarning("Trying to select too many ingredients!");
 	}
 
-	public void DeselectIngredient(IngredientData deselectedIngredient, int index)
+	public void DeselectIngredient(Ingredient deselectedIngredient, int index)
 	{
 		if (ingredients[index] != deselectedIngredient)
         {
