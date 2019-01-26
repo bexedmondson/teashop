@@ -7,7 +7,6 @@ public class Game : MonoBehaviour
 {
     public static Game instance = null;
 
-	[SerializeField] private IngredientEditableList currentIngredientList;
 	[SerializeField] private CurrentCustomerManager currentCustomerManager;
 
 	[SerializeField] private CurrentCustomer currentCustomer;
