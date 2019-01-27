@@ -11,6 +11,7 @@ public class CameraManager : MonoBehaviour
 	{
 		BowlView,
         CabinetView,
+        ShopView,
 	}
 
     private void Awake()
@@ -26,12 +27,18 @@ public class CameraManager : MonoBehaviour
     
 	[SerializeField] private AnimationCurve cameraMoveCurve;
     
-	public CameraPosition currentPosition = CameraPosition.BowlView;
-    
+	public CameraPosition currentPosition = CameraPosition.ShopView;
+
+	public readonly Vector3 shopViewPosition = new Vector3(0f, 10f, -10f);
 	public readonly Vector3 bowlViewPosition = new Vector3(0f, 0f, -10f);
 	public readonly Vector3 cabinetViewPosition = new Vector3(0f, -5.47f, -10f);
     
 	private const float cameraMoveTime = 1f;
+
+	public void IntroCamera()
+	{
+		StartMoveCamera(CameraPosition.BowlView);
+	}
 
 	public void StartMoveCamera(CameraPosition targetPosition)
     {

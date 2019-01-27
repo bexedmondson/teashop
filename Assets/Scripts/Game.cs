@@ -7,7 +7,7 @@ public class Game : MonoBehaviour
 {
     public static Game instance = null;
 
-	[SerializeField] private CurrentCustomerManager currentCustomerManager;
+	[SerializeField] private DayManager currentCustomerManager;
 
 	[SerializeField] private CurrentCustomer currentCustomer;
 
