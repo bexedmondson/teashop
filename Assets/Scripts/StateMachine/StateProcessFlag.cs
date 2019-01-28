@@ -12,5 +12,12 @@ public class StateProcessFlag : ScriptableObject
 	}
     
     [System.NonSerialized]
-	public ProgressState progressState;
+	private ProgressState progressState;
+
+	public void SetFinished()
+	{
+		progressState = ProgressState.Finished;
+	}
+
+	public ProgressState State { get { return progressState; } }
 }

@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15d6136a5ea18410688cde9e020a23e6, type: 3}
-  m_Name: Intro
+  m_Name: PanToBowl
   m_EditorClassIdentifier: 
   stateAvailabilityFlags: []
   waitForProcessFlags:
-  - {fileID: 11400000, guid: 8c856b512e7f4447d8dda95d5c69a3ee, type: 2}
+  - {fileID: 11400000, guid: 0225748508611499f85dd0c948957443, type: 2}
   nextStates:
-  - {fileID: 11400000, guid: baea4465fed8f4cccaae5a247c06d168, type: 2}
+  - {fileID: 11400000, guid: 05ee17832ddb042158f7aa17a0e9827c, type: 2}

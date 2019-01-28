@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class State : ScriptableObject 
+public abstract class State : GameEvent 
 {
 	[SerializeField]
 	private List<BoolVariableVerifier> stateAvailabilityFlags = new List<BoolVariableVerifier> { };
-
-	[SerializeField]
-	private UnityEvent actions = new UnityEvent();
 
 	[SerializeField]
 	private List<StateProcessFlag> waitForProcessFlags = new List<StateProcessFlag> { };
@@ -37,7 +34,7 @@ public abstract class State : ScriptableObject
             return;
         }
 
-		actions.Invoke();
+		Raise();
 
 		if (waitForProcessFlags.Count > 0)
 			StateProcessFlagObserver.instance.ListenFor(Transition, waitForProcessFlags);

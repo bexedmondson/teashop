@@ -26,6 +26,8 @@ public class CameraManager : MonoBehaviour
     }
     
 	[SerializeField] private AnimationCurve cameraMoveCurve;
+
+	[SerializeField] private StateProcessFlag cameraIntroMoveDoneFlag;
     
 	public CameraPosition currentPosition = CameraPosition.ShopView;
 
@@ -80,5 +82,7 @@ public class CameraManager : MonoBehaviour
 
             yield return null;
         }
+
+		cameraIntroMoveDoneFlag.SetFinished();
 	}
 }
