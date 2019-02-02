@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Name: ShopOpen
   m_EditorClassIdentifier: 
   stateAvailabilityFlags: []
-  waitForProcessFlags:
-  - {fileID: 0}
-  nextStates:
-  - {fileID: 0}
+  waitForProcessFlags: []
+  nextStates: []

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class StateProcessFlagObserver : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class StateProcessFlagObserver : MonoBehaviour
 
 	private Dictionary<Action, List<StateProcessFlag>> observers = new Dictionary<Action, List<StateProcessFlag>> { };
 
+	private Dictionary<Action, List<StateProcessFlag>> thisFrameObservers = new Dictionary<Action, List<StateProcessFlag>> { };
+
 	public void ListenFor(Action OnAllFlagsFinishedAction, List<StateProcessFlag> stateFlags)
 	{
 		observers.Add(OnAllFlagsFinishedAction, stateFlags);
@@ -32,26 +35,29 @@ public class StateProcessFlagObserver : MonoBehaviour
 	{
 		List<Action> toBeRemoved = new List<Action> { };
 
-		foreach (KeyValuePair<Action, List<StateProcessFlag>> observer in observers)
+        //shallow copying because observers can be added during iteration
+		thisFrameObservers = observers.ToDictionary(entry => entry.Key, entry => entry.Value);
+
+		foreach (KeyValuePair<Action, List<StateProcessFlag>> observer in thisFrameObservers)
 		{
 			bool shouldInvokeAction = true;
 
 			//if any flag is still in progress, don't do anything
 			for (int i = observer.Value.Count - 1; i >= 0; i--)
-			{            
+			{
 				if (observer.Value[i].State == StateProcessFlag.ProgressState.InProgress)
 					shouldInvokeAction = false;            
 			}
 
 			if (shouldInvokeAction == false)
-                break;
+			    break;
 
 			//only call finished action when all the other things are done
 			observer.Key();
 			toBeRemoved.Add(observer.Key);
 		}
 
-		foreach(Action key in toBeRemoved)
-    		observers.Remove(key);
+		foreach (Action key in toBeRemoved)
+			observers.Remove(key);
 	}
 }

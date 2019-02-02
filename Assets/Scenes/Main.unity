@@ -1653,7 +1653,7 @@ GameObject:
   - component: {fileID: 1121248899}
   - component: {fileID: 1121248898}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1804,7 +1804,6 @@ MonoBehaviour:
   teaBag: {fileID: 1472463374}
   moveButton: {fileID: 1803010092}
   currentCustomer: {fileID: 11400000, guid: fe05f043b6da44e9b82639af154d942d, type: 2}
-  titleAnimator: {fileID: 0}
 --- !u!4 &1171091736
 Transform:
   m_ObjectHideFlags: 0
