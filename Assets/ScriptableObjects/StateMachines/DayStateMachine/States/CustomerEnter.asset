@@ -13,4 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateAvailabilityFlags: []
   waitForProcessFlags: []
-  nextStates: []
+  nextStates:
+  - {fileID: 11400000, guid: 04d4e8db2b4a849cf94147460c6949a4, type: 2}

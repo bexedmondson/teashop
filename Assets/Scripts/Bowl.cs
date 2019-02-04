@@ -13,6 +13,10 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 
     [SerializeField] private IngredientEditableList currentIngredientList;
 
+	[SerializeField] private StateProcessFlag bowlSelectedFlag;
+    
+	[SerializeField] private StateProcessFlag stirFinishedFlag;
+
 	private const float k_forceMultiplier = 0.01f;
 	private const float k_teaSpinAmountTarget = 10000f;
 
@@ -26,17 +30,15 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 		teaSpinAmountTotal += eventData.delta.magnitude;
 
 		if (teaSpinAmountTotal > k_teaSpinAmountTarget)
-		{
 			TeaMixed();
-
-			UIManager.instance.OnTeaMixed();
-		}
 	}
 
 	public void OnPointerClick(PointerEventData pointerEventData)
     {      
 		if (currentIngredientList.NumberOfIngredients >= 1)
 		{
+			bowlSelectedFlag.SetFinished();
+
 			foreach (Rigidbody2D mixRigidbody in mixRigidbodies)
 				mixRigidbody.gameObject.SetActive(true);
 
@@ -65,5 +67,7 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
         
 		foreach (Rigidbody2D mixRigidbody in mixRigidbodies)
             mixRigidbody.gameObject.SetActive(false);
+
+		stirFinishedFlag.SetFinished();
 	}
 }

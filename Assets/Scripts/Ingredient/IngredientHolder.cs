@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(GameEventListener))]
+[RequireComponent(typeof(GameEventListenerMB))]
 public class IngredientHolder : MonoBehaviour, IPointerClickHandler
 {   
 	private Ingredient ingredientData;

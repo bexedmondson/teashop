@@ -39,7 +39,7 @@ public class Game : MonoBehaviour
             return;
         }
 
-		UIManager.instance.ShowSpeechBubble(currentCustomer.customer.FirstEnquiry);
+		//UIManager.instance.ShowSpeechBubble(currentCustomer.customer.FirstEnquiry);
     }
 
     /*public void TeaChosen()

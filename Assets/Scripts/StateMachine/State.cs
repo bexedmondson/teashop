@@ -27,12 +27,17 @@ public abstract class State : GameEvent
 	}
     
 	public void Activate()
-	{      
+	{
+		Debug.Log(this.name);
+
         if (StateProcessFlagObserver.instance == null)
         {
             Debug.Log("No StateProcessFlagObserver currently running.");
             return;
         }
+
+		foreach (StateProcessFlag flag in waitForProcessFlags)
+			flag.SetInProgress();
 
 		Raise();
 
@@ -46,7 +51,11 @@ public abstract class State : GameEvent
 	{   
 		for (int i = 0; i < nextStates.Count; i++)
 		{
-			if (nextStates[i].CanBeActivated())
+			if (nextStates[i] == null)
+			{
+				Debug.LogWarning("Empty next state object found! Check state scriptable objects.");
+			}
+			else if (nextStates[i].CanBeActivated())
 			{
 				nextStates[i].Activate();
 				return;

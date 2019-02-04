@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Name: IngredientSelect
   m_EditorClassIdentifier: 
   stateAvailabilityFlags: []
-  waitForProcessFlags: []
-  nextStates: []
+  waitForProcessFlags:
+  - {fileID: 11400000, guid: c2c737cc7c2e346cea129115916e141c, type: 2}
+  nextStates:
+  - {fileID: 11400000, guid: 2e88db0eef9b94adeb3f74bd2c43c5e7, type: 2}

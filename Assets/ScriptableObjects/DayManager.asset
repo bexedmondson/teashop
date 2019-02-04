@@ -11,9 +11,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554c1cda5e68349ff93790ee0e74db1e, type: 3}
   m_Name: DayManager
   m_EditorClassIdentifier: 
+  eventResponsePairs:
+  - gameEvent: {fileID: 11400000, guid: f96174271a3d649c2bd963c7fcaaec92, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: PopulateTodayCustomerList
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - gameEvent: {fileID: 11400000, guid: 4460fb6c88f7f4da5a7830479eba0e0c, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_MethodName: NextUnservedCustomer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   initialState: {fileID: 11400000, guid: f96174271a3d649c2bd963c7fcaaec92, type: 2}
   currentCustomer: {fileID: 11400000, guid: fe05f043b6da44e9b82639af154d942d, type: 2}
   todayCustomersList: {fileID: 11400000, guid: 5a5bb249233ac446788436cf3a3461f2, type: 2}
-  customerListPopulatedFlag: {fileID: 11400000, guid: 666f45a9d451a495e9b5992943d3b487,
-    type: 2}
-  nextCustomerSelectedFlag: {fileID: 0}
+  testEvent: {fileID: 0}

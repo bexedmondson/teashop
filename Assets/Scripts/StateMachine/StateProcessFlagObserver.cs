@@ -45,7 +45,9 @@ public class StateProcessFlagObserver : MonoBehaviour
 			//if any flag is still in progress, don't do anything
 			for (int i = observer.Value.Count - 1; i >= 0; i--)
 			{
-				if (observer.Value[i].State == StateProcessFlag.ProgressState.InProgress)
+				if (observer.Value[i] == null)
+					Debug.LogWarning("Empty progress state flag found! Check state scriptable objects.");
+                else if (observer.Value[i].State == StateProcessFlag.ProgressState.InProgress)
 					shouldInvokeAction = false;            
 			}
 

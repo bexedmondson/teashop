@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Day Manager")]
-public class DayManager : ScriptableObject 
+public class DayManager : GameEventListenerSO
 {
 	[SerializeField] private DayState initialState;
 
@@ -12,6 +13,9 @@ public class DayManager : ScriptableObject
 
     [SerializeField]
     private CustomerList todayCustomersList;
+    
+	[SerializeField]
+	private GameEvent testEvent;
 
     [System.NonSerialized]
     private int customerIndex = 0;
@@ -24,15 +28,15 @@ public class DayManager : ScriptableObject
 
 	public void PopulateTodayCustomerList()
 	{
-		//TODO actually generate a list instead of just using the premade one
-		NextUnservedCustomer();
+		//TODO actually generate a list instead of just using the premade one      
 	}
 
     public void NextUnservedCustomer()
     {
         if (customerIndex >= todayCustomersList.customers.Count)
         {
-            currentCustomer.customer = null;
+			//do nothing so the game doesn't crash lol. just show the last person again
+            //currentCustomer.customer = null;
         }
         else
         {

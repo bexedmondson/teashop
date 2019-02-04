@@ -19,6 +19,11 @@ MonoBehaviour:
   - statType: 1
     statValue: 3
   firstEnquiry: HELLO 2
+  firstEnquiryResponse1: what up
+  firstEnquiryResponse2: yo
+  secondEnquiry: GIVE TEAAA
+  secondEnquiryResponse1: 'okay okay '
+  secondEnquiryResponse2: chill dude
   thankYou: THANK YOU 2
   beenServed: 0
   successfulTea: 0

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Name: ConversationEnd
   m_EditorClassIdentifier: 
   stateAvailabilityFlags: []
-  waitForProcessFlags: []
-  nextStates: []
+  waitForProcessFlags:
+  - {fileID: 11400000, guid: d6475d55dfd9e4ac29830a607346317b, type: 2}
+  nextStates:
+  - {fileID: 11400000, guid: 4460fb6c88f7f4da5a7830479eba0e0c, type: 2}

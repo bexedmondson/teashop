@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Name: Stir
   m_EditorClassIdentifier: 
   stateAvailabilityFlags: []
-  waitForProcessFlags: []
-  nextStates: []
+  waitForProcessFlags:
+  - {fileID: 11400000, guid: 2cb0a3eb8f97f4e3db76a4d1a67e387e, type: 2}
+  nextStates:
+  - {fileID: 11400000, guid: ab72290a6ca7f4e7b9764a75ffefa224, type: 2}
