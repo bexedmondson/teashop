@@ -7,7 +7,7 @@ public class Game : MonoBehaviour
 {
     public static Game instance = null;
 
-	[SerializeField] private CurrentCustomerManager currentCustomerManager;
+	[SerializeField] private DayManager currentCustomerManager;
 
 	[SerializeField] private CurrentCustomer currentCustomer;
 
@@ -39,7 +39,7 @@ public class Game : MonoBehaviour
             return;
         }
 
-		UIManager.instance.ShowSpeechBubble(currentCustomer.customer.FirstEnquiry);
+		//UIManager.instance.ShowSpeechBubble(currentCustomer.customer.FirstEnquiry);
     }
 
     /*public void TeaChosen()

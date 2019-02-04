@@ -14,7 +14,7 @@ public class SwipeHandler : MonoBehaviour
 		Left
 	}
 
-	private const float swipeSensitivity = 10f;
+	/*private const float swipeSensitivity = 10f;
 
 	private bool swiping = false;
 	private bool eventSent = false;

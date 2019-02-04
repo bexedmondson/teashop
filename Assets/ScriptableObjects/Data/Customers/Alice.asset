@@ -17,6 +17,11 @@ MonoBehaviour:
   - statType: 0
     statValue: 1
   firstEnquiry: HI 1
+  firstEnquiryResponse1: yes
+  firstEnquiryResponse2: also yes
+  secondEnquiry: TEA PLS 1
+  secondEnquiryResponse1: ofc
+  secondEnquiryResponse2: naturally
   thankYou: THANKS 1
   beenServed: 0
   successfulTea: 0

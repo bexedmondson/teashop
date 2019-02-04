@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+	[SerializeField] private Animator logoAnimator;
+
 	[SerializeField] private GameObject speechBubbleObject;
     
 	[SerializeField] private Text speechBubbleText;
@@ -26,7 +28,18 @@ public class UIManager : MonoBehaviour
     
 	[SerializeField] private Button moveButton;
 
-	[SerializeField] private CurrentCustomer currentCustomer;
+	[SerializeField] private CurrentCustomer currentCustomer;   
+    
+	[SerializeField] private GameObject button1;
+	[SerializeField] private GameObject button2;
+	[SerializeField] private GameObject nextCustomerButton;
+
+	[SerializeField] private Text button1Text;
+	[SerializeField] private Text button2Text;
+
+	[SerializeField] private StateProcessFlag conversationCompleteFlag;
+	[SerializeField] private StateProcessFlag teaMixedFlag;
+	[SerializeField] private StateProcessFlag goodbyeSelectedFlag;
 
 	private Animator speechBubbleAnimator;
 
@@ -42,30 +55,72 @@ public class UIManager : MonoBehaviour
 		speechBubbleAnimator = speechBubbleObject.GetComponent<Animator>();
 	}
 
-	public void ShowSpeechBubble(string text)
+	public void AnimateTitleOut()
 	{
-		speechBubbleObject.SetActive(true);
-		speechBubbleText.text = text;
+		logoAnimator.SetTrigger("Outro");
+	}
+
+	public void ShowSpeechBubble()
+	{
+		speechBubbleObject.SetActive(true);      
+	}
+    
+	public void ShowFirstEnquiry()
+	{
+		button1.SetActive(true);
+        button2.SetActive(true);
+        nextCustomerButton.SetActive(false);
+
+		speechBubbleText.text = currentCustomer.customer.FirstEnquiry;
+
+        button1Text.text = currentCustomer.customer.FirstEnquiryResponse1;
+        button2Text.text = currentCustomer.customer.FirstEnquiryResponse2;
+	}
+
+	public void MoveToSecondEnquiry() //TODO fiiiiiix this because wow
+	{
+		if (speechBubbleText.text == currentCustomer.customer.SecondEnquiry)
+		{
+			HideSpeechBubble();
+			conversationCompleteFlag.SetFinished();
+		}
+		else
+		{
+			speechBubbleText.text = currentCustomer.customer.SecondEnquiry;
+
+			button1Text.text = currentCustomer.customer.SecondEnquiryResponse1;
+			button2Text.text = currentCustomer.customer.SecondEnquiryResponse2;
+		}
 	}
 
 	public void HideSpeechBubble()
 	{
 		speechBubbleObject.SetActive(false);
 	}
-
+    
 	public void OnTeaMixed()
 	{
 		teaBag.gameObject.SetActive(true);
-
-		ShowSpeechBubble(currentCustomer.customer.ThankYou); //TODO CHANGE
 	}
 
-	public void OnTeaBagClicked()
+	public void OnGoodbyeStarted()
 	{
-		teaBag.gameObject.SetActive(false);
+		teaMixedFlag.SetFinished();
 
-		EventManager.TriggerEvent(EventManager.NextCustomer);
+		teaBag.gameObject.SetActive(false);      
+
+        ShowSpeechBubble();
+        speechBubbleText.text = currentCustomer.customer.ThankYou;
+
+        button1.SetActive(false);
+        button2.SetActive(false);
+        nextCustomerButton.SetActive(true);
 	}
+
+    public void OnGoodbyeSelected()
+    {
+        goodbyeSelectedFlag.SetFinished();
+    }
 
 	public void OnMoveButtonClicked()
 	{
@@ -75,17 +130,11 @@ public class UIManager : MonoBehaviour
 		{
 			manager.StartMoveCamera(CameraManager.CameraPosition.CabinetView);
 			moveButton.gameObject.transform.Rotate(new Vector3(0, 0, 180));
-
-			speechBubbleAnimator.ResetTrigger("MoveDown");
-			speechBubbleAnimator.SetTrigger("MoveUp");
 		}
 		else if (manager.currentPosition == CameraManager.CameraPosition.CabinetView)
 		{
 			manager.StartMoveCamera(CameraManager.CameraPosition.BowlView);
 			moveButton.gameObject.transform.Rotate(new Vector3(0, 0, 180));
-
-			speechBubbleAnimator.ResetTrigger("MoveUp");
-            speechBubbleAnimator.SetTrigger("MoveDown");
 		}
 	}
 }

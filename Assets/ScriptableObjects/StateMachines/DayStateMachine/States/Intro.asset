@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d6136a5ea18410688cde9e020a23e6, type: 3}
+  m_Name: Intro
+  m_EditorClassIdentifier: 
+  stateAvailabilityFlags: []
+  waitForProcessFlags:
+  - {fileID: 11400000, guid: 8c856b512e7f4447d8dda95d5c69a3ee, type: 2}
+  nextStates:
+  - {fileID: 11400000, guid: baea4465fed8f4cccaae5a247c06d168, type: 2}
