@@ -22,6 +22,11 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 
 	private float teaSpinAmountTotal = 0f;
 
+	public void ClearIngredientList()
+	{
+		currentIngredientList.Clear();
+	}
+
 	public void OnDrag(PointerEventData eventData)
 	{
 		foreach (Rigidbody2D mixRigidbody in mixRigidbodies)
@@ -58,7 +63,7 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 			}
         }
 
-        currentIngredientList.Clear();
+		ClearIngredientList();
     }
 
 	private void TeaMixed()
