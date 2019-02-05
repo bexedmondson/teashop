@@ -26,7 +26,7 @@ public class Game : MonoBehaviour
 
     void Start()
     {
-		EventManager.TriggerEvent(EventManager.NextCustomer);
+		//EventManager.TriggerEvent(EventManager.NextCustomer);
     }
 
     private void CustomerArrives()
