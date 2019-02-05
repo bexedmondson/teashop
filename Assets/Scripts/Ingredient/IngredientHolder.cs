@@ -28,4 +28,10 @@ public class IngredientHolder : MonoBehaviour, IPointerClickHandler
 		ingredientData = currentIngredientList.GetIngredientAtIndex(index);
 		ingredientSpriteRenderer.sprite = (ingredientData != null) ? ingredientData.itemSprite : null;
 	}
+
+	public void ClearSprite()
+	{
+		ingredientData = null;
+        ingredientSpriteRenderer.sprite = null;
+	}
 }

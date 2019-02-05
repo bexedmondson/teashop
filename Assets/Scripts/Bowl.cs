@@ -62,8 +62,6 @@ public class Bowl : MonoBehaviour, IPointerClickHandler, IDragHandler
 				}
 			}
         }
-
-		ClearIngredientList();
     }
 
 	private void TeaMixed()
