@@ -448,6 +448,23 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  - gameEvent: {fileID: 11400000, guid: 2e88db0eef9b94adeb3f74bd2c43c5e7, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 219139431}
+          m_MethodName: ClearSprite
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &258751326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1329,23 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  - gameEvent: {fileID: 11400000, guid: 2e88db0eef9b94adeb3f74bd2c43c5e7, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535952229}
+          m_MethodName: ClearSprite
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &535992402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1739,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventResponsePairs:
   - gameEvent: {fileID: 11400000, guid: f96174271a3d649c2bd963c7fcaaec92, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 774880678}
+          m_MethodName: ClearIngredientList
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - gameEvent: {fileID: 11400000, guid: ea5aa7268a62842bfa6ca61a60c8753a, type: 2}
     response:
       m_PersistentCalls:
         m_Calls:
@@ -3449,7 +3500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1472463373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3790,6 +3841,23 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1540269617}
           m_MethodName: RefreshIngredientData
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - gameEvent: {fileID: 11400000, guid: 2e88db0eef9b94adeb3f74bd2c43c5e7, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1540269617}
+          m_MethodName: ClearSprite
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4657,6 +4725,23 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1969025774}
           m_MethodName: RefreshIngredientData
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - gameEvent: {fileID: 11400000, guid: 2e88db0eef9b94adeb3f74bd2c43c5e7, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1969025774}
+          m_MethodName: ClearSprite
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
