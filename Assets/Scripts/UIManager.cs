@@ -53,6 +53,8 @@ public class UIManager : MonoBehaviour
 	{
 		speechBubbleObject.SetActive(false);
 		speechBubbleAnimator = speechBubbleObject.GetComponent<Animator>();
+
+		teaBag.gameObject.SetActive(false);
 	}
 
 	public void AnimateTitleOut()
