@@ -13,9 +13,6 @@ public class DayManager : GameEventListenerSO
 
     [SerializeField]
     private CustomerList todayCustomersList;
-    
-	[SerializeField]
-	private GameEvent testEvent;
 
     [System.NonSerialized]
     private int customerIndex = 0;
