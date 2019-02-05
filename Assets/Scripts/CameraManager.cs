@@ -31,7 +31,7 @@ public class CameraManager : MonoBehaviour
     
 	public CameraPosition currentPosition = CameraPosition.ShopView;
 
-	public readonly Vector3 shopViewPosition = new Vector3(0f, 10f, -10f);
+	public readonly Vector3 shopViewPosition = new Vector3(0f, 11.23f, -10f);
 	public readonly Vector3 bowlViewPosition = new Vector3(0f, 0f, -10f);
 	public readonly Vector3 cabinetViewPosition = new Vector3(0f, -5.47f, -10f);
     
