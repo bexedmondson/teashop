@@ -26,11 +26,11 @@ public abstract class State : GameEvent
 		return true;
 	}
     
-	public void Activate()
+	public virtual void Activate()
 	{
 		Debug.Log(this.name);
 
-        if (StateProcessFlagObserver.instance == null)
+		if (StateProcessFlagObserver.instance == null)
         {
             Debug.Log("No StateProcessFlagObserver currently running.");
             return;
