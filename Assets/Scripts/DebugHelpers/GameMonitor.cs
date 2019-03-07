@@ -7,7 +7,9 @@ public static class GameMonitor
 {
 #if UNITY_EDITOR
 
-	public static string mostRecentDayStateName;
+	public static DayState mostRecentDayState;
+
+	public static CurrentCustomer customerHolder;
 
 	[UnityEditor.Callbacks.DidReloadScripts]
 	private static void OnScriptsReloaded()
@@ -19,7 +21,18 @@ public static class GameMonitor
     
 	public static void OnDayStateChanged(DayState dayState)
 	{
-		mostRecentDayStateName = dayState.name;
+		mostRecentDayState = dayState;
+		EditorWindow.GetWindow(typeof(GameMonitorWindow)).Repaint();
+	}
+
+	public static void OnDayStateFlagUpdated()
+	{
+		EditorWindow.GetWindow(typeof(GameMonitorWindow)).Repaint();
+	}
+
+	public static void OnCustomerChanged(CurrentCustomer currentCustomer)
+	{
+		customerHolder = currentCustomer;
 		EditorWindow.GetWindow(typeof(GameMonitorWindow)).Repaint();
 	}
 

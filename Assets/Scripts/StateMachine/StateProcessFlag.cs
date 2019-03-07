@@ -26,11 +26,13 @@ public class StateProcessFlag : ScriptableObject
 	public void SetInProgress()
 	{
 		progressState = ProgressState.InProgress;
+		GameMonitor.OnDayStateChanged(null);
 	}
 
 	public void SetFinished()
 	{
 		progressState = ProgressState.Finished;
+		GameMonitor.OnDayStateFlagUpdated();
 	}
 
 	public ProgressState State { get { return progressState; } }

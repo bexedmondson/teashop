@@ -38,7 +38,12 @@ public class DayManager : GameEventListenerSO
         else
         {
             currentCustomer.customer = todayCustomersList.customers[customerIndex];
-            customerIndex++;
+
+#if UNITY_EDITOR
+			GameMonitor.OnCustomerChanged(currentCustomer);         
+#endif
+
+			customerIndex++;
         }
     }
 }

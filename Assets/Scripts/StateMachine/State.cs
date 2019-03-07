@@ -9,7 +9,7 @@ public abstract class State : GameEvent
 	private List<BoolVariableVerifier> stateAvailabilityFlags = new List<BoolVariableVerifier> { };
 
 	[SerializeField]
-	private List<StateProcessFlag> waitForProcessFlags = new List<StateProcessFlag> { };
+	public List<StateProcessFlag> waitForProcessFlags = new List<StateProcessFlag> { }; //TODO how to make this private while debug stuff can access it?
 
 	[SerializeField]
 	private List<State> nextStates = new List<State> { };
@@ -28,11 +28,13 @@ public abstract class State : GameEvent
     
 	public virtual void Activate()
 	{
-		Debug.Log(this.name);
-
+#if UNITY_EDITOR
+		Debug.Log("[State] " + this.name);
+#endif
+        
 		if (StateProcessFlagObserver.instance == null)
         {
-            Debug.Log("No StateProcessFlagObserver currently running.");
+            Debug.LogError("No StateProcessFlagObserver currently running.");
             return;
         }
 
