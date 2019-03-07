@@ -45,8 +45,8 @@ public class UIManager : MonoBehaviour
 
 	private void OnEnable()
 	{
-		EventManager.StartListening(EventManager.SwipeUp, OnMoveButtonClicked);
-		EventManager.StartListening(EventManager.SwipeDown, OnMoveButtonClicked);
+		//EventManager.StartListening(EventManager.SwipeUp, OnMoveButtonClicked);
+		//EventManager.StartListening(EventManager.SwipeDown, OnMoveButtonClicked);
 	}
 
 	void Start()
